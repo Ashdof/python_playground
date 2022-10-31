@@ -19,9 +19,3 @@ Pyhton is an easy programming language to learn. In addition, it is one of the m
 ## Technology
 
 The projects were created on the `Ubuntu 22.04.1 LTS` using `Python 3.10.6`. 
-
-## References
-
-The major reference material used for this tutorial is ebooks, plus `Google` searches
-
-- [Think Python](https://greenteapress.com/wp/think-python/) by [Allen B. Downey](https://en.wikipedia.org/wiki/Allen_B._Downey)
