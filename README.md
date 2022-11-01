@@ -1,4 +1,4 @@
-# MY PYTHON PLAYGROUND
+# My Python Playground
 
 This directory contains various personal projects I have created to practice the concepts and knowledge gained in learning to code with Python. It is my goal to master this language to advance my career in Machine Learning and Artificial Intelligence.
 
