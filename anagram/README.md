@@ -6,11 +6,11 @@ This is a word game in which the user is challenged to guess and present the cor
 
 The words used for this project were collected and contributed to the public domain by [Grady Ward](https://en.wikipedia.org/wiki/Grady_Ward) as part of the [Moby Project](https://en.wikipedia.org/wiki/Moby_Project). The list of words were downloaded from [Green Tea Press](https://greenteapress.com/thinkpython/code/words.txt) website. There were initially 113,809 words. For the purpose of this project, words with 3 letters and below were removed. Also, words with repeated first characters were removed. Due to the quantity of the words, the clean up was done by executing the following code:
 
-`
-def getwords(filepath):
-    word_file = open(filepath, 'r')
-    gametext = open('game_one', 'a')
 
+`def getwords(filepath):`
+    `word_file = open(filepath, 'r')`
+    `gametext = open('game_one', 'a')`
+`
     for word in word_file:
         nword = word.strip()
 
