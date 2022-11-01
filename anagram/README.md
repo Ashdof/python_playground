@@ -25,6 +25,8 @@ def getwords(filepath):
 
 The `filepath` is the name of the file containing the list of words if it is in the same directory as the file with this python code. If the file is in a different directory, then the absolute path should be provided.
 
+After the cleanup, the number reduced to `21, 251` words, `165,022` characters and of `3,523` pages of an A4 size paper.
+
 ## Files in this repository
 
 ...to be updated soon.
