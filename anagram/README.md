@@ -1,6 +1,6 @@
 # Anagram Game
 
-This is a word game in which the user is challenged to guess and present the correct spelling of a shuffled word. The user is given `three (3)` chances to attempt guessing the correct word. A correct attempt awards `three (3)` marks and `zero (0)` for an incorrect guessing after the third attemp.
+This is a word game in which the user is challenged to guess and present the correct spelling of a shuffled word. The user is given `three (3)` chances to attempt guessing the correct word. A correct attempt awards `three (3)` marks and `zero (0)` for an incorrect guessing after the third attempt.
 
 ## About the Words
 
