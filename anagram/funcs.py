@@ -16,40 +16,20 @@ class anagram:
         """
         return self._filepath
 
-    def get_word(self):
+
+    def get_score(self):
+        """Score a Guess
+        Invokes the guess_word() function and awards marks based on the return value
+        of the function
         """
-        Selects a word from the list of words at random
-        """
-        file = self.get_filepath()
+        score = 0
+        state = self.guess_word()
 
-        rec = open(file, 'r')
-        wordstore = list(rec)
-        while True:
-            getword = random.choice(wordstore).strip()
+        if state == 1:
+            score += 3
+        
+        return score
 
-            if getword == "":
-                continue
-
-            return getword
-
-
-    def shuffle_word(self, asem):
-        """Shuffle Word
-        Shuffles a word passed to it as a parameter
-
-        asem:   the parameter
-        """
-        asemlist = list(asem)
-        shuffled = asem
-        done = False
-
-        while not done:
-            random.shuffle(asemlist)
-            shuffled = ''.join(asemlist)
-
-            if shuffled != asem:
-                return shuffled
-    
 
     def guess_word(self):
         """Guess the Correct Word
@@ -72,3 +52,38 @@ class anagram:
             elif guess == asem:
                 print("Congrats!")
                 return 1
+
+
+    def shuffle_word(self, asem):
+        """Shuffle Word
+        Shuffles a word passed to it as a parameter
+
+        asem:   the parameter
+        """
+        asemlist = list(asem)
+        shuffled = asem
+        done = False
+
+        while not done:
+            random.shuffle(asemlist)
+            shuffled = ''.join(asemlist)
+
+            if shuffled != asem:
+                return shuffled
+
+
+    def get_word(self):
+        """
+        Selects a word from the list of words at random
+        """
+        file = self.get_filepath()
+
+        rec = open(file, 'r')
+        wordstore = list(rec)
+        while True:
+            getword = random.choice(wordstore).strip()
+
+            if getword == "":
+                continue
+
+            return getword
