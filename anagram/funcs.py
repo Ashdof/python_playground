@@ -37,10 +37,8 @@ class anagram:
         """Shuffle Word
         Shuffles a word passed to it as a parameter
 
-        asem:   the parameter to receive a word
+        asem:   the parameter
         """
-        # asem = self.get_word()
-
         asemlist = list(asem)
         shuffled = asem
         done = False
@@ -51,3 +49,26 @@ class anagram:
 
             if shuffled != asem:
                 return shuffled
+    
+
+    def guess_word(self):
+        """Guess the Correct Word
+        Present a shuffled word to be guessed by the user. If guess right, return 1
+        else return -1
+        """
+        asem = self.get_word()
+        quest = self.shuffle_word(asem).lower().strip()
+
+        print("Solve: ", quest)
+
+        for i in range(3, 0, -1):
+            print("Attempt: ", i)
+            guess = input().lower()
+
+            if i == 1 and guess !=  asem:
+                print("Sorry, you couldn't solve this!")
+                print("The correct word is: ", asem)
+                return -1
+            elif guess == asem:
+                print("Congrats!")
+                return 1
