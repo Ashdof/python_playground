@@ -42,7 +42,7 @@ class anagram:
         print("Solve: ", quest)
 
         for i in range(3, 0, -1):
-            print("Attempt: ", i)
+            print("Attempt {}: ".format(i))
             guess = input().lower()
 
             if i == 1 and guess !=  asem:
