@@ -20,16 +20,15 @@ while not done:
 
     elif activity == "_done_":
         # invoke save_record function here
-        print("\nGame Summary\n=============================")
-        print("Game rounds: {}\nTotal score: {}".format(game_round, total_score))
+        # print("\nGame Summary\n=============================")
+        # print("Game rounds: {}\nTotal score: {}".format(game_round, total_score))
         print("\nAPPLICATION EXIT")
         done = True
         exit(0)
 
     else:
         val = acts.anagram(gamewords)
-        score = val.get_score()
-        total_score += score
-        game_round += 1
-
-# print("Score: ", score)
+        score = val.guess_word()
+        # print("Score: ", score)
+        # total_score += score
+        # game_round += 1
