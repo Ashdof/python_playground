@@ -33,26 +33,56 @@ class gamedbmanager:
             print("Failed to connect: ", e)
 
 
-    def create_tbl(self):
+    def create_table(self):
         """Create Table in database file"""
         try:
             conn = self.db_connection()
             query = '''CREATE TABLE IF NOT EXISTS gamerecords(
-                id INTEGER PRIMARY KEY AUTO INCREMENT
-                curdate DATE NOT NULL,
-                score NUMBER NOT NULL
-                ); '''
+                id INTEGER NOT NULL,
+                curdate TEXT NOT NULL,
+                score NUMBER NOT NULL,
+                PRIMARY KEY("id" AUTOINCREMENT)
+            ); '''
             
             cursor = conn.cursor()
             cursor.execute(query)
             conn.commit()
 
-            print("Table creation was sucessful.")
+            print("Table creation sucessful.")
 
             cursor.close()
 
         except sqlite3.Error as e:
             print("Failed to create table: ", e)
+
+        finally:
+            if conn:
+                conn.close()
+    
+    def save_record(self, _date, _score):
+        """Save Record
+
+        Commit the record to the database table
+        """
+        try:
+            conn = self.db_connection()
+            cursor = conn.cursor()
+            
+            query = "INSERT INTO gamerecords (currentdate, score) VALUES (?, ?)"
+            data_tuple = (_date, _score)
+            cursor.execute(query, data_tuple)
+
+            conn.commit()
+            cursor.close()
+            
+            qty = conn.total_changes
+            if qty < 1:
+                return 1
+            else:
+                return qty
+
+        except sqlite3.Error as e:
+            print("Failed to save record: ", e)
 
         finally:
             if conn:
