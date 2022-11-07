@@ -36,22 +36,30 @@ class anagram:
         Present a shuffled word to be guessed by the user. If guess right, return 1
         else return -1
         """
+        done = False
+        
         asem = self.get_word()
         quest = self.shuffle_word(asem).lower().strip()
 
         print("Solve: ", quest)
 
-        for i in range(3, 0, -1):
-            print("Attempt {}: ".format(i))
-            guess = input().lower()
+        while not done:
+            for i in range(3, 0, -1):
+                print("Attempt {}: ".format(i))
+                guess = input().lower()
 
-            if i == 1 and guess !=  asem:
-                print("Sorry, you couldn't solve this!")
-                print("The correct word is: ", asem)
-                return -1
-            elif guess == asem:
-                print("Congrats!")
-                return 1
+                if guess == "":
+                    print("Game process cancelled")
+                    done = True
+
+                elif i == 1 and guess !=  asem:
+                    print("Sorry, you couldn't solve this!")
+                    print("The correct word is: ", asem)
+                    return -1
+
+                elif guess == asem:
+                    print("Congrats!")
+                    return 1
 
 
     def shuffle_word(self, asem):
