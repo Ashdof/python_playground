@@ -17,34 +17,76 @@ class anagram:
         return self._filepath
 
 
-    def getscore(self):
-        """Score a Guess
-        Invokes the guess_word() function and awards marks based on the return value
-        of the function
-        """
+    def gameloop(self):
 
-        i = 3
+        rounds = 0
         score = 0
-        asem = self.get_word()
-        quest = self.shuffle_word(asem).lower().strip()
+        done = False
         
+        quits = ["q", "quit", 'Q', "Quit", "QUIT"]
         success = ["Correct!", "Congrats!", "Awesome!", "Wow!", "Bingo!", "Genius!"]
 
-        print("New word: ", quest)
-        for i in range(3, 0, -1):
-            guess = self.guessword(i)
+        while not done:
+            
+            asem = self.get_word()
+            quest = self.shuffle_word(asem)
+            print("\nNew word: ", quest)
 
-            if guess == asem:
-                print(random.choice(success))
-                score += 3
-                break
-            else:
-                score += 0
+            rounds += 1
 
-        print("Score: ", score)
+            for i in range(3, 0, -1):
+                guess = self.guessword(i)
+
+                if guess in quits:
+                    print("Score: ", score)
+                    print("Rounds: ", rounds)
+                    print("Game process cancelled")
+                    done = True
+                    break
+
+                elif guess == asem:
+                    print(random.choice(success))
+                    score += 3
+                    print("Score: ", score)
+                    break
+
+                elif i == 1 and guess != asem:
+                    print("Correct word: ", asem)
+                    score += 0
+                    print("Score: ", score)
+
+
+
+    # def getscore(self):
+    #     """Score a Guess
+    #     Invokes the guess_word() function and awards marks based on the return value
+    #     of the function
+    #     """
+
+    #     i = 3
+    #     score = 0
+    #     asem = self.get_word()
+    #     quest = self.shuffle_word(asem).lower().strip()
         
-        return score
+    #     success = ["Correct!", "Congrats!", "Awesome!", "Wow!", "Bingo!", "Genius!"]
+
+    #     print("New word: ", quest)
+    #     for i in range(3, 0, -1):
+    #         guess = self.guessword(i)
+
+    #         if guess == asem:
+    #             print(random.choice(success))
+    #             score += 3
+    #             print("Score: ", score)
+    #             break
+    #         elif i == 1 and guess != asem:
+    #             print("Correct word: ", asem)
+    #             score += 0
+    #             print("Score: ", score)
+      
+    #     return score
     
+
     def guessword(self, attempt):
         """Guess the correct word
         Accepts user input
@@ -55,32 +97,6 @@ class anagram:
         guess = input("Attempt {}: ".format(attempt)).lower()
 
         return guess
-
-
-
-    # def guess_word(self):
-    #     """Guess the Correct Word
-    #     Present a shuffled word to be guessed by the user. If guess right, return 1
-    #     else return -1
-    #     """
-
-    #     asem = self.get_word()
-    #     quest = self.shuffle_word(asem).lower().strip()
-
-    #     print("\nSolve: ", quest)
-    
-    #     for i in range(3, 0, -1):
-    #         print("\nAttempt {}: ".format(i))
-    #         guess = input().lower()
-
-    #         if i == 1 and guess !=  asem:
-    #             print("Sorry, you couldn't solve this!")
-    #             print("The correct word is: ", asem)
-    #             return -1
-
-    #         elif guess == asem:
-    #             print("Congrats!")                
-    #             return 1
 
 
     def shuffle_word(self, asem):

@@ -1,5 +1,6 @@
 import datetime
 import funcs as acts
+import trial as tries
 from dbclass import gamedbmanager as db
 
 gamewords = 'game_words'
@@ -25,4 +26,4 @@ while not done:
 
     else:
         val = acts.anagram(gamewords)
-        score = val.getscore()
+        score = val.gameloop()
