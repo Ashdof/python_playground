@@ -10,7 +10,7 @@ done = False
 game_round = 0
 total_score = 0
 game_date = datetime.datetime.now()
-cmds = ["_play_", "_man_", "_done_"]
+cmds = ["play", "_man_", "done"]
 
 while not done:
     print("\nWhat do you want to do? ")

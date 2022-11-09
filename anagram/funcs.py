@@ -38,54 +38,31 @@ class anagram:
                 guess = self.guessword(i)
 
                 if guess in quits:
-                    print("Score: ", score)
-                    print("Rounds: ", rounds)
-                    print("Game process cancelled")
+                    print("\nSummary: ")
+                    print(self.__str__(rounds, score))
+                    print("\nGame process cancelled")
                     done = True
                     break
 
-                elif guess == asem:
+                elif i == 3 and guess == asem:
                     print(random.choice(success))
+                    print("Score: ", 5)
+                    score += 5
+                    
+                    break
+
+                elif i == 2 and guess == asem:
+                    print(random.choice(success))
+                    print("Score: ", 3)
                     score += 3
-                    print("Score: ", score)
+
                     break
 
                 elif i == 1 and guess != asem:
                     print("Correct word: ", asem)
-                    score += 0
-                    print("Score: ", score)
+                    print("Score: ", 1)
+                    score += 1
 
-
-
-    # def getscore(self):
-    #     """Score a Guess
-    #     Invokes the guess_word() function and awards marks based on the return value
-    #     of the function
-    #     """
-
-    #     i = 3
-    #     score = 0
-    #     asem = self.get_word()
-    #     quest = self.shuffle_word(asem).lower().strip()
-        
-    #     success = ["Correct!", "Congrats!", "Awesome!", "Wow!", "Bingo!", "Genius!"]
-
-    #     print("New word: ", quest)
-    #     for i in range(3, 0, -1):
-    #         guess = self.guessword(i)
-
-    #         if guess == asem:
-    #             print(random.choice(success))
-    #             score += 3
-    #             print("Score: ", score)
-    #             break
-    #         elif i == 1 and guess != asem:
-    #             print("Correct word: ", asem)
-    #             score += 0
-    #             print("Score: ", score)
-      
-    #     return score
-    
 
     def guessword(self, attempt):
         """Guess the correct word
@@ -132,3 +109,13 @@ class anagram:
                 continue
 
             return getword
+
+    
+    def __str__(self, _round, _totalscore):
+        """Return a string representation of values
+        
+        @_round: the current stage of the game
+        @_totalscore: the total score earned so far
+        """
+
+        return "Game stage: {}\nTotal score: {}".format(_round, _totalscore)
