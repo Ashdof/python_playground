@@ -24,7 +24,9 @@ class anagram:
         done = False
         
         quits = ["q", "quit", 'Q', "Quit", "QUIT"]
-        success = ["Correct!", "Congrats!", "Awesome!", "Wow!", "Bingo!", "Genius!"]
+        best = ["Awesome!", "Wow!", "Bingo!", "Genius!"]
+        better = ["Very good!", "Better!", "Do more!", "Congrats!"]
+        good = ["Good!", "Correct!", "Keep up!", "Lucky!"]
 
         while not done:
             
@@ -45,23 +47,28 @@ class anagram:
                     break
 
                 elif i == 3 and guess == asem:
-                    print(random.choice(success))
+                    print(random.choice(best))
                     print("Score: ", 5)
                     score += 5
                     
                     break
 
                 elif i == 2 and guess == asem:
-                    print(random.choice(success))
+                    print(random.choice(better))
                     print("Score: ", 3)
                     score += 3
 
                     break
 
-                elif i == 1 and guess != asem:
-                    print("Correct word: ", asem)
+                elif i == 1 and guess == asem:
+                    print(random.choice(good))
                     print("Score: ", 1)
                     score += 1
+
+                elif i == 1 and guess != asem:
+                    print("Correct word: ", asem)
+                    print("Score: ", 0)
+                    score += 0
 
 
     def guessword(self, attempt):

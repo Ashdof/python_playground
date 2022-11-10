@@ -19,7 +19,7 @@ while not done:
     if activity not in cmds:
         print("Command not found")
 
-    elif activity == "_done_":
+    elif activity == "done":
         print("\nAPPLICATION EXIT")
         done = True
         exit(0)
