@@ -60,27 +60,23 @@ class gamedbmanager:
             if conn:
                 conn.close()
     
-    def save_record(self, _date, _score):
+    def save_record(self, _date, _rounds, _score):
         """Save Record
 
-        Commit the record to the database table
+        Commit the record to the database
         """
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
             
-            query = "INSERT INTO gamerecords (currentdate, score) VALUES (?, ?)"
-            data_tuple = (_date, _score)
+            query = "INSERT INTO gamerecords (curdate, rounds, score) VALUES (?, ?, ?)"
+            data_tuple = (_date, _rounds, _score)
             cursor.execute(query, data_tuple)
 
             conn.commit()
             cursor.close()
-            
-            qty = conn.total_changes
-            if qty < 1:
-                return 1
-            else:
-                return qty
+
+            print("Record saved!")
 
         except sqlite3.Error as e:
             print("Failed to save record: ", e)

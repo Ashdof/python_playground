@@ -1,4 +1,10 @@
 import random
+import datetime
+from dbclass import gamedbmanager
+
+dbfile = 'gamedb.db'
+db = gamedbmanager(dbfile)
+game_date = datetime.datetime.now()
 
 class anagram:
 
@@ -40,6 +46,7 @@ class anagram:
                 guess = self.guessword(i)
 
                 if guess in quits:
+                    db.save_record(game_date, rounds, score)
                     print("\nSummary: ")
                     print(self.__str__(rounds, score))
                     print("\nGame process cancelled")
