@@ -40,6 +40,7 @@ class gamedbmanager:
             query = '''CREATE TABLE IF NOT EXISTS gamerecords(
                 id INTEGER NOT NULL,
                 curdate TEXT NOT NULL,
+                rounds INTEGER NOT NULL,
                 score NUMBER NOT NULL,
                 PRIMARY KEY("id" AUTOINCREMENT)
             ); '''

@@ -1,10 +1,14 @@
 import datetime
 import funcs as acts
 import trial as tries
-from dbclass import gamedbmanager as db
+from dbclass import gamedbmanager
 
 gamewords = 'game_words'
 dbfile = 'gamedb.db'
+
+# Create database file and table if not exit
+db = gamedbmanager(dbfile)
+# db.create_table()
 
 done = False
 game_round = 0
