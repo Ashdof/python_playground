@@ -4,7 +4,8 @@ from dbclass import gamedbmanager
 
 dbfile = 'gamedb.db'
 db = gamedbmanager(dbfile)
-game_date = datetime.datetime.now()
+ddate = datetime.datetime.now()
+game_date = str(ddate.year) + "-" + str(ddate.month) + "-" + str(ddate.day)
 
 class anagram:
 
@@ -133,3 +134,46 @@ class anagram:
         """
 
         return "Game stage: {}\nTotal score: {}".format(_round, _totalscore)
+
+
+#===============    DATABASE ACCESS SECTION     ==================================
+
+    def _getrecords_(self):
+        """Display Records
+        
+        User is presented with options to choose from
+        """
+        
+        done = False
+
+        print("\nSelect the number for a corresponding record to display\n")
+        print("1: Detail Record\n2: Name and Codes\n3: Name, Profession and Phone Numbers\n4: Names and Phone Numbers\n5. Name and Email Addresses ")
+        
+        while not done:
+            val = input("\nNumber ?>: ")
+
+            if val == "":
+                print("Display process cancelled")
+                done = True
+                
+            else:
+                match val:
+                    case "1":
+                        db.display_detail_records()
+                        done = True
+
+                    # case "2":
+                    #     db.display_names_and_codes()
+                    #     done = True
+
+                    # case "3":
+                    #     db.display_names_prof_contacts()
+                    #     done = True
+
+                    # case "4":
+                    #     db.display_names_and_numbers()
+                    #     done = True
+
+                    # case "5":
+                    #     db.display_names_email_addresses()
+                    #     done = True

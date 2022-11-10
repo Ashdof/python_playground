@@ -60,6 +60,7 @@ class gamedbmanager:
             if conn:
                 conn.close()
     
+
     def save_record(self, _date, _rounds, _score):
         """Save Record
 
@@ -81,6 +82,60 @@ class gamedbmanager:
         except sqlite3.Error as e:
             print("Failed to save record: ", e)
 
+        finally:
+            if conn:
+                conn.close()
+    
+
+    def display_detail_records(self):
+        """Display Records
+        
+        Display all information in the specified table 
+        """
+        try:
+            conn = self.db_connection()
+            cursor = conn.cursor()
+            query = "SELECT * FROM gamerecords"
+            cursor.execute(query)
+            records = cursor.fetchall()
+
+            table = Texttable()
+            table.header(["Game Number", "Date", "Game Stage", "Total Score"])
+            table.set_cols_dtype(['t', 't', 't', 't'])
+
+            for record in records:
+                table.add_row([record[0], record[1], record[2], record[3]])
+
+            print("\n", table.draw())
+            print("\nNumber of records found: ", self.get_number_of_records())
+
+            cursor.close()
+        except sqlite3.Error as e:
+            print("Failed to fetch records: ", e)
+        finally:
+            if conn:
+                conn.close()
+    
+
+    def get_number_of_records(self):
+        """Number of records
+        
+        Get the number of records in the table
+        """
+        try:
+            conn = self.db_connection()
+            cursor = conn.cursor()
+            query = "SELECT * FROM gamerecords"
+            cursor.execute(query)
+            records = cursor.fetchall()
+
+            total = len(records)
+
+            cursor.close()
+            return total
+            
+        except sqlite3.Error as e:
+            print("Failed to fetch records: ", e)
         finally:
             if conn:
                 conn.close()
