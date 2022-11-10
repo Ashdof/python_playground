@@ -50,7 +50,7 @@ class anagram:
                     db.save_record(game_date, rounds, score)
                     print("\nSummary: ")
                     print(self.__str__(rounds, score))
-                    print("\nGame process cancelled")
+                    print("\nGame Mode cancelled")
                     done = True
                     break
 
@@ -135,6 +135,18 @@ class anagram:
 
         return "Game stage: {}\nTotal score: {}".format(_round, _totalscore)
 
+    
+    def mangram(self):
+        """Displays the manual when invoked
+        
+        Read the information from file and display it on the scree
+        """
+        man = open("mangram", "r")
+
+        for line in man:
+            print(line, end='')
+        man.close()
+
 
 #===============    DATABASE ACCESS SECTION     ==================================
 
@@ -147,13 +159,13 @@ class anagram:
         done = False
 
         print("\nSelect the number for a corresponding record to display\n")
-        print("1: Detail Record\n2: Name and Codes\n3: Name, Profession and Phone Numbers\n4: Names and Phone Numbers\n5. Name and Email Addresses ")
+        print("1: Detail Record")
         
         while not done:
             val = input("\nNumber ?>: ")
 
             if val == "":
-                print("Display process cancelled")
+                print("Display Mode cancelled")
                 done = True
                 
             else:
