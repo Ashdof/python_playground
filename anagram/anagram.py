@@ -55,6 +55,10 @@ while not done:
     else:
         match activity:
             case "play":
+                print("\n\t\t\tGame Mode")
+                print("\t\tNavigate the Game Mode: ")
+                print("\tShuffle: 's'\tQuit: 'q'\tPass: 'Enter' ")
+                print("\t____________________________________________")
                 val = acts.anagram(gamewords).gameloop()
             case "ds":
                 val = acts.anagram(gamewords)._getrecords_()

@@ -54,6 +54,14 @@ class anagram:
                     done = True
                     break
 
+                elif guess == "s":
+                    print("Reshuffled: ", self.shuffle_word(asem))
+                
+                elif i == 1 and guess == "s":
+                    print("Correct word: ", asem)
+                    print("Score: ", 0)
+                    score += 0
+
                 elif i == 3 and guess == asem:
                     print(random.choice(best))
                     print("Score: ", 5)
