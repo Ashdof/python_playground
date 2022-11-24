@@ -1,4 +1,4 @@
-def factorial(number):
+def iterative_factorial(number):
     product = 1
 
     for i in range(1, number + 1):
@@ -6,9 +6,14 @@ def factorial(number):
 
     return product
 
+def recursive_factorial(number):
+    if number == 1:
+        return 1
+    else:
+        return number * recursive_factorial(number - 1)
 
 #   ==============  Work Area   =============================
 
 val = int(input("Enter a number: "))
 for i in range(1, val):
-    print("{}! = {}".format(i, factorial(i)))
+    print("{}! = {}".format(i, recursive_factorial(i)))
