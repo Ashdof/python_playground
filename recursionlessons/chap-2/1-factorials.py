@@ -1,4 +1,7 @@
 def iterative_factorial(number):
+    """
+        Compute factorial by iteration
+    """
     product = 1
 
     for i in range(1, number + 1):
@@ -7,6 +10,9 @@ def iterative_factorial(number):
     return product
 
 def recursive_factorial(number):
+    """
+        Compute factorial by recursion
+    """
     if number == 1:
         return 1
     else:
