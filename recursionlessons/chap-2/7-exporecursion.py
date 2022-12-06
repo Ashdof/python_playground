@@ -16,6 +16,37 @@ def exporecursion(base, exponent):
         return ans * ans * base
 
 
+def expobypowerrule(base, exponent):
+    '''iCompute for the power of a number by the power rule that recursive algorithms uses'''
+
+    # step 1 - determine the operation to perform
+    opstack = []
+    
+    while exponent > 1:
+        if exponent % 2 == 0:
+            # exponent is even
+            
+            opstack.append('square')
+            exponent = exponent // 2
+        elif exponent % 2 == 1:
+            # exponent is odd
+            
+            exponent -= 1
+            opstack.append('mutliply')
+
+    # step 2 - perform operation in reverse order
+
+    ans = base  # start ans at 'base'
+    while opstack:
+        op = opstack.pop()
+
+        if op == 'multiply':
+            ans *= base
+        elif op == 'square':
+            ans *= ans
+
+    return ans
+
 
 #   ============================================
 
@@ -35,5 +66,5 @@ if __name__ == '__main__':
                 done = True
                 break
             else:
-                ans = exporecursion(int(base), int(expo))
+                ans = expobypowerrule(int(base), int(expo))
                 print(f'{base} raised to the power {expo} is {ans}')
