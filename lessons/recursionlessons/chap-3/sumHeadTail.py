@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
 def sum(numbers):
+    '''
+    Find the sum of all elements of a list using the head
+    and tail technique
+    '''
     
     if len(numbers) == 0:   # 0 is the base case
         return 0
