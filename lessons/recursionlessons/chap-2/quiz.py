@@ -154,6 +154,35 @@ def sumRecursion(n):
         return n + sumRecursion(n - 1)
 
 
+'''
+    Q3:
+    Iteratively calculate the sum of the first n powers of 2 in a function
+    named sumPowersOf2(). The powers of 2 are 2, 4, 8, 16, 32, and so on.
+'''
+
+def sumPowersOf2(n):
+    '''Iterative approach'''
+
+    ans = 0
+    for i in range(1, n + 1):
+        pw = 2 ** i
+        ans += pw
+    return ans
+
+
+'''
+    Q4:
+    Write the recursive form of sumPowersOf2(). This function should use
+    recursive function calls instead of a loop.
+'''
+
+def sumPowersOf2Recursion(n):
+    '''Recursive approach'''
+
+    if n == 1:
+        return n + n
+    else:
+        return 2 ** sumPowersOf2Recursion(n - 1)
 
 
 
@@ -162,5 +191,5 @@ def sumRecursion(n):
 if __name__ == '__main__':
 
     val = int(input("Enter a value: "))
-    print("Sum of all numbers up to {} = {}".format(val, sumRecursion(val)))
+    print("Sum of powers of 2 up to {} = {}".format(val, sumPowersOf2Recursion(val)))
 
