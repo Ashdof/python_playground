@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 def rev(theString):
+    '''
+    Reverse a string using the head and tail technique
+    '''
 
     if len(theString) == 0 or len(theString) == 1:
         return theString
