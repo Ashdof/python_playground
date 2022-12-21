@@ -1,6 +1,7 @@
 """
     =======================     MY ANAGRAM GAME APPLICATION     ===================================
     DATE:                   04-NOV-2022
+    LAST UPDATED:           21-DEC-2022
     DEVELOPER:              EMMANUEL ENCHILL
     DESCRIPTION:            THIS IS A SIMPLE GAME APPLICATION. IT DISPLAYS SHUFFLED WORDS FOR THE USER TO GUESS THE
                             CORRECT SPELLING. IT SAVES GAME RECORDS TO AN SQLite3 DATABASE FILE
@@ -13,7 +14,7 @@ from dbclass import gamedbmanager
 
 appname = "MyAnagram Game Application"
 developer = "Emmanuel Enchill"
-pro_info = "Challenge yourself best the world of word game"
+pro_info = "Challenge yourself to best the world of word game"
 pro_info_1 = "This application is powered by commands. Use the following to \n\tperform most common tasks. Use 'mangram' for more."
 
 line = "__________________________________________________________________"
@@ -31,7 +32,7 @@ print(line)
 gamewords = 'game_words'
 dbfile = 'gamedb.db'
 
-# Create database file and table if not exit
+# Create database file and table if not exist
 db = gamedbmanager(dbfile)
 # db.create_table()
 
