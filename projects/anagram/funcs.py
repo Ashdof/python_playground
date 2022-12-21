@@ -181,7 +181,7 @@ class anagram:
         Description:
         This method reads the information from file and display it on the screen. The contents
         detail rules and commands for playing the game and navigating the application
-        
+
         """
         man = open("mangram", "r")
 
@@ -195,12 +195,20 @@ class anagram:
     def _getrecords_(self):
         """Display Records
         
-        User is presented with options to choose from
+        Description:
+        This method displays the records of the game. User is presented with options to
+        from to choose how to display the record
+        the option chosen by the user
+
+        Options:
+            1: detail record display in table
+        
         """
         
         done = False
 
         print("\nSelect the number for a corresponding record to display\n")
+        print("To exit the display mode, press the enter or return key\n")
         print("1: Detail Record")
         
         while not done:
