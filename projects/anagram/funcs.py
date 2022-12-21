@@ -60,6 +60,7 @@ class anagram:
                 elif guess == "s":
                     """Reshuffle the word
 
+                    Description:
                     This block reshuffles the word but should retain the counter (i) at the same
                     number at which the shuffle_word method was invoked. It needs more work
 
@@ -97,9 +98,13 @@ class anagram:
 
     def guessword(self, attempt):
         """Guess the correct word
-        Accepts user input
+        
+        Description:
+        This method takes input from the standard input as the user attempts at guessing
+        the correct spelling of the word
 
-        @attempt: an integer value to count number of attempts made
+        Arguments:
+            attempt (int): a counter to track number of attempts made
         """
 
         guess = input("Attempt {}: ".format(attempt)).lower()
@@ -108,10 +113,13 @@ class anagram:
 
 
     def shuffle_word(self, asem):
-        """Shuffle Word
-        Shuffles a word passed to it as a parameter
+        """Shuffle word
 
-        asem:   the parameter
+        Description:
+        This method shuffles the word passed to it as its parameter
+
+        Arguments:
+            asem (string):   the word passed to this method as parameter
         """
         asemlist = list(asem)
         shuffled = asem
@@ -126,8 +134,15 @@ class anagram:
 
 
     def get_word(self):
-        """
-        Selects a word from the list of words at random
+        """Select a word
+
+        Description:
+        This method selects a word at random from  a sea of words in a file.
+        The file has no extension
+
+        Returns:
+            A single word upon each invocation
+        
         """
         file = self.get_filepath()
 
@@ -144,18 +159,29 @@ class anagram:
     
     def __str__(self, _round, _totalscore):
         """Return a string representation of values
-        
-        @_round: the current stage of the game
-        @_totalscore: the total score earned so far
+
+        Description:
+        This method overrides the __str__() function and returns a string
+        representation of game records
+
+        Arguments:
+            _round (int): an integer value that represents the current stage of the game
+            _totalscore (int): an integer value that represents the total score earned so far
+
+        Returns:
+        A brief summary of game stage and score
         """
 
         return "Game stage: {}\nTotal score: {}".format(_round, _totalscore)
 
     
     def mangram(self):
-        """Displays the manual when invoked
+        """The application's manual
+
+        Description:
+        This method reads the information from file and display it on the screen. The contents
+        detail rules and commands for playing the game and navigating the application
         
-        Read the information from file and display it on the scree
         """
         man = open("mangram", "r")
 
