@@ -1,13 +1,17 @@
 """
     =======================     MY ANAGRAM GAME APPLICATION     ===================================
+    FILE:                   USER INTERFACE CLASS
     DATE:                   04-NOV-2022
     LAST UPDATED:           21-DEC-2022
     DEVELOPER:              EMMANUEL ENCHILL
     DESCRIPTION:            THIS IS A SIMPLE GAME APPLICATION. IT DISPLAYS SHUFFLED WORDS FOR THE USER TO GUESS THE
                             CORRECT SPELLING. IT SAVES GAME RECORDS TO AN SQLite3 DATABASE FILE
+                            
     CLASS DESCRIPTION:      THIS CLASS ACTS AS THE FRONTEND OF THE APPLICATION. IT INTERACTS WITH THE USER THROUGH
                             SIMPLE COMMANDS.
 """
+
+#!/usr/bin/python3
 
 import funcs as acts
 from dbclass import gamedbmanager
