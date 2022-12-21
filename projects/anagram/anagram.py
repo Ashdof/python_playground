@@ -6,14 +6,14 @@
     DEVELOPER:              EMMANUEL ENCHILL
     DESCRIPTION:            THIS IS A SIMPLE GAME APPLICATION. IT DISPLAYS SHUFFLED WORDS FOR THE USER TO GUESS THE
                             CORRECT SPELLING. IT SAVES GAME RECORDS TO AN SQLite3 DATABASE FILE
-                            
+
     CLASS DESCRIPTION:      THIS CLASS ACTS AS THE FRONTEND OF THE APPLICATION. IT INTERACTS WITH THE USER THROUGH
                             SIMPLE COMMANDS.
 """
 
 #!/usr/bin/python3
 
-import funcs as acts
+import gamelogic as acts
 from dbclass import gamedbmanager
 
 appname = "MyAnagram Game Application"
