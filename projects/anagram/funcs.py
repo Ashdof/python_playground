@@ -44,9 +44,12 @@ class anagram:
             rounds += 1
 
             for i in range(3, 0, -1):
+
+                """Invoke the guessword method"""
                 guess = self.guessword(i)
 
                 if guess in quits:
+                    """Save record to database, print game summary quit"""
                     db.save_record(game_date, rounds, score)
                     print("\nSummary: ")
                     print(self.__str__(rounds, score))
@@ -55,9 +58,16 @@ class anagram:
                     break
 
                 elif guess == "s":
+                    """Reshuffle the word
+
+                    This block reshuffles the word but should retain the counter (i) at the same
+                    number at which the shuffle_word method was invoked. It needs more work
+
+                    """
                     print("Reshuffled: ", self.shuffle_word(asem))
 
                 elif i == 3 and guess == asem:
+                    """Score highest mark for correct guess at the first attempt"""
                     print(random.choice(best))
                     print("Score: ", 5)
                     score += 5
@@ -65,6 +75,7 @@ class anagram:
                     break
 
                 elif i == 2 and guess == asem:
+                    """Score medium mark for correct guess at the second attempt"""
                     print(random.choice(better))
                     print("Score: ", 3)
                     score += 3
@@ -72,11 +83,13 @@ class anagram:
                     break
 
                 elif i == 1 and guess == asem:
+                    """Score lowest mark for correct guess at the third attempt"""
                     print(random.choice(good))
                     print("Score: ", 1)
                     score += 1
 
                 elif i == 1 and guess != asem:
+                    """Score nothing and print correct word"""
                     print("Correct word: ", asem)
                     print("Score: ", 0)
                     score += 0
