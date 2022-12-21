@@ -31,22 +31,22 @@ After the cleanup, the number reduced to `21, 251` words, `165,022` characters a
 
 The following are the files in this repository:
 
-- anagram.py file
+- ` anagram.py file `
 This file contains the main function of the program and acts as the interface the user directly ineteracts with
 
-- dbclass.py file
+- ` dbclass.py file `
 This is a class file that directly communicates with the database file. The functions in this file execute activities such as committing records to the database and selecting records for display
 
-- funcs.py file
-This file contains the game logic; the functions in this file selects words randomly from a text file, shuffles the word and presents it to the user. It also takes the user's input through a guess and compares it with the original word. It then awards marks accordingly. The process runs in a loop until a particular condition is met at which the program will terminate. It also communicates directly with the dbclass.py file to commit and display saved records
+- ` gamelogic.py file  `
+This file contains the game logic; the methods in this file select words randomly from a file, shuffle the word and present it to the user. The methods also take the user's input through a guess and compare it with the original word. It then awards marks accordingly. The process runs in a loop until a particular condition is met at which the program will terminate.
 
-- game_words file
+- ` game_words file `
 This file contains over 10,000 words which are selected at random
 
-- gamedb.db
+- ` gamedb.db `
 This is a simple SQLite3 file which stores the records of a game
 
-- mangram
+- ` mangram `
 This is a simple text file with instructions on how to navigate the application and the game
 
-`Enjoy the Game`
+` Enjoy the Game `
