@@ -1,12 +1,14 @@
-"""
-    Programme:      Game Database Class
+""" =======================     MY ANAGRAM GAME APPLICATION     ===================================
+    FILE:           GAME DATABASE CLASS
     DATE:           04-Nov-2022
+    LAST UPDATED:   21-DEC-2022
     DEVELOPER:      EMMANUEL ENCHILL
+
     DESCRIPTION:    THIS CLASS FILE HAS METHODS TO CONNECT TO THE DATABASE AND PERFORM CRUD ACTIONS ON IT. IT ACTS
-                    AS THE GLUE BETWEEN THE DATABASE FILE AND FRONTEND CLASS THAT INTERACTS WITH THE USER.
+                    AS THE GLUE BETWEEN THE DATABASE FILE AND GAME LOGIC CLASS THAT INTERACTS WITH THE USER.
 """
 
-#usr/bin/python
+#!/usr/bin/python3
 
 import sqlite3
 from texttable import Texttable
@@ -16,7 +18,9 @@ class gamedbmanager:
     def __init__(self, db_path):
         """Initialise the class with the path to the database file
         
-        db_path     Path to the database file
+        Arguments:
+            db_path (string):  path to the database file
+
         """
         self._db_path = db_path
   
@@ -24,7 +28,11 @@ class gamedbmanager:
     def db_connection(self):
         """Database Connection
         
-        Create a connection to the database 
+        Description:
+            Create a connection to the database
+
+        Returns:
+            A connection to the database 
         """
         try:
             conn = sqlite3.connect(self._db_path)
@@ -34,7 +42,12 @@ class gamedbmanager:
 
 
     def create_table(self):
-        """Create Table in database file"""
+        """Create Table in database file
+        
+        Descriotn:
+            Create a table in the database file
+
+        """
         try:
             conn = self.db_connection()
             query = '''CREATE TABLE IF NOT EXISTS gamerecords(
@@ -64,7 +77,14 @@ class gamedbmanager:
     def save_record(self, _date, _rounds, _score):
         """Save Record
 
-        Commit the record to the database
+        Description:
+            Commit the records to the database
+
+        Arguments:
+            _date (date): the date for the game play
+            _rounds (int): an integer value that represents the game stage
+            _score (int): an integer value that represents the score of the game
+
         """
         try:
             conn = self.db_connection()
@@ -90,7 +110,9 @@ class gamedbmanager:
     def display_detail_records(self):
         """Display Records
         
-        Display all information in the specified table 
+        Description:
+            Display all information in the specified table
+
         """
         try:
             conn = self.db_connection()
@@ -120,7 +142,12 @@ class gamedbmanager:
     def get_number_of_records(self):
         """Number of records
         
-        Get the number of records in the table
+        Description:
+            Get the number of records in the table
+        
+        Returns:
+            The number of records
+            
         """
         try:
             conn = self.db_connection()

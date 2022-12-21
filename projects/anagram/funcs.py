@@ -1,5 +1,6 @@
 """
 =======================     MY ANAGRAM GAME APPLICATION     ===================================
+    FILE:                   GAME LOGIC CLASS
     DATE:                   04-NOV-2022
     LAST UPDATED:           21-DEC-2022
     DEVELOPER:              EMMANUEL ENCHILL
