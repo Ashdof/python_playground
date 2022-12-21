@@ -1,3 +1,5 @@
+.gitignore
 trial.py
 __pycache__/
 resource/
+trial2.py
