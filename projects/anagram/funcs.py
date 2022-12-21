@@ -14,14 +14,14 @@ class anagram:
         
         filepath:   path to the file or name of the file
         """
-        self._filepath = filepath
+        self.__filepath = filepath
     
     def get_filepath(self):
         """Get Filepath
 
         Returns the path of the file
         """
-        return self._filepath
+        return self.__filepath
 
 
     def gameloop(self):
