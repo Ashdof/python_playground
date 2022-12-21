@@ -207,7 +207,7 @@ class anagram:
         
         done = False
 
-        print("\nSelect the number for a corresponding record to display\n")
+        print("\nSelect the number for a corresponding record to display")
         print("To exit the display mode, press the enter or return key\n")
         print("1: Detail Record")
         
