@@ -1,3 +1,19 @@
+"""
+=======================     MY ANAGRAM GAME APPLICATION     ===================================
+    DATE:                   04-NOV-2022
+    LAST UPDATED:           21-DEC-2022
+    DEVELOPER:              EMMANUEL ENCHILL
+    DESCRIPTION:            THIS IS A SIMPLE GAME APPLICATION. IT DISPLAYS SHUFFLED WORDS FOR THE USER TO GUESS THE
+                            CORRECT SPELLING. IT SAVES GAME RECORDS TO AN SQLite3 DATABASE FILE
+
+    CLASS DESCRIPTION:      THIS CLASS IS THE LOGIC OF THE GAME. THE METHODS DISPLAY SHUFFLED WORDS, TAKES INPUTS FROM
+                            THE STANDARD INPUT AS GUESSES, COMPARES AND AWARD MAKRS FOR CORRECT GUESS AND PASS INFORMATION
+                            TO THE DATABASE CLASS FILE TO BE COMMITTED DATABASE. METHODS ALSO DISPLAY RECORDS AND TRACK GAME
+                            PROGRESS
+"""
+
+#!/usr/bin/python3
+
 import random
 import datetime
 from dbclass import gamedbmanager
@@ -12,19 +28,33 @@ class anagram:
     def __init__(self, filepath):
         """Initialise class variables
         
-        filepath:   path to the file or name of the file
+        Arguments:
+            filepath (string):  path to the file or name of the file
         """
         self.__filepath = filepath
     
     def get_filepath(self):
         """Get Filepath
 
-        Returns the path of the file
+        Description:
+        This method gets the file path
+        
+        Returns:
+        The path of the file
         """
         return self.__filepath
 
 
     def gameloop(self):
+        """The Game Loop
+
+        Description:
+        This method keeps the application in the loop. The user can access all the
+        functionalities of the application while in the loop. The application exits
+        when any value in the 'quits' list is provided to the 'Question' and then
+        presses the Enter or Return key
+
+        """
 
         rounds = 0
         score = 0
