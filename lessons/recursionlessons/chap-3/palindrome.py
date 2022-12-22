@@ -1,6 +1,6 @@
 def isPalindrome(theString):
     '''
-        ======= Detect Palindrom Word or Phrase ======
+        ======= Detect Palindrome Word or Phrase ======
         This function detects whether a word or phrase is
         palindrome or not
     '''
