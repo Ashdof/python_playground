@@ -52,3 +52,4 @@ if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    #doctest.testfile("2-example.txt")
