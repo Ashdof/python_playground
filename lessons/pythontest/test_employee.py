@@ -4,17 +4,27 @@ import unittest
 from employee import Employee
 
 class TestEmployee(unittest.TestCase):
+    
+    @classmethod
+    def setUpClass(cls):
+        print("setupClass")
+
+    @classmethod
+    def tearDownClas(cls):
+        print("teardownClass")
 
     def setUp(self):
+        print("setUp")
         self.emp_1 = Employee("Jay", "Kay", 50000)
         self.emp_2 = Employee("May", "Hay", 250000)
 
 
     def tearDown(self):
-        pass
+        print("tearDown\n")
 
 
     def test_email(self):
+        print("test_email")
         self.assertEqual(self.emp_1.email, "Jay.Kay@email.com")
         self.assertEqual(self.emp_2.email, "May.Hay@email.com")
 
@@ -26,6 +36,7 @@ class TestEmployee(unittest.TestCase):
 
 
     def test_fullname(self):
+        print("test_fullname")
         self.assertEqual(self.emp_1.fullname, "Kay Jay")
         self.assertEqual(self.emp_2.fullname, "Hay May")
 
@@ -37,6 +48,7 @@ class TestEmployee(unittest.TestCase):
 
 
     def test_applyraise(self):
+        print("test_payraise")
         self.emp_1.applyraise()
         self.emp_2.applyraise()
         
