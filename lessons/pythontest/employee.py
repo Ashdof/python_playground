@@ -19,4 +19,4 @@ class Employee:
         return "{} {}".format(self.last, self.first)
 
     def applyraise(self):
-        self.pay = int(self.pay * raise_amount)
+        self.pay = int(self.pay * self.raise_amount)

@@ -30,8 +30,8 @@ class TestEmployee(unittest.TestCase):
         emp_1.first = "Lady"
         emp_2.first = "Bee"
 
-        self.assertEqual(emp_1.email, "Kay Lady")
-        self.assertEqual(emp_2.email, "Hay Bee")
+        self.assertEqual(emp_1.fullname, "Kay Lady")
+        self.assertEqual(emp_2.fullname, "Hay Bee")
 
 
     def test_applyraise(self):
@@ -43,7 +43,7 @@ class TestEmployee(unittest.TestCase):
         emp_2.applyraise()
         
         self.assertEqual(emp_1.pay, 52500)
-        self.assertEqual(emp_1.pay, 262500)
+        self.assertEqual(emp_2.pay, 262500)
 
 
 if __name__ == '__main__':
