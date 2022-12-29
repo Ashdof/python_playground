@@ -1,15 +1,19 @@
 """
-    =======================     MyWallet APPLICATION     ===================================
+    =======================     MYWALLET APPLICATION     ===================================
     FILE:                   DATA ENTRY CLASS
     DATE:                   29-DEC-2022
     LAST UPDATED:           29-DEC-2022
     DEVELOPER:              EMMANUEL ENCHILL
 
-    DESCRIPTION:            THIS IS THE CATEGORIES CLASS
+    DESCRIPTION:            THIS IS THE DATA ENRTY CLASS
 
 """
 
 #!/usr/bin/python3
+import dbclass as db
+
+dbpath = "mywallet.db"
+record = db.walletdbmanager(db_path=dbpath)
 
 __line = "_______________________________________"
 
