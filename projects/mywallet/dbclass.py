@@ -99,7 +99,7 @@ class walletdbmanager:
             conn.commit()
             cursor.close()
 
-            print("Record saved!")
+            # print("Record saved!")
 
         except sqlite3.Error as e:
             print("Failed to save record: ", e)

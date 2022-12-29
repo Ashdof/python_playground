@@ -62,11 +62,9 @@ class NewDataEntry:
                 if catename == "" or catename == " ":
                     print("Blanks not allowed for category names")
                 
-                result = record._commitcategory(catecode, catename)
-                if result == 0:
-                    print("{} category saved".format(catename))
-                else:
-                    print("{} category cannot be saved".format(catename))
+                record._commitcategory(catecode, catename)
+                print("{} category saved".format(catename))
                 
+                print("\t____________________________________________")
                 done = True
-                print(__line)
+                # print(__line)
