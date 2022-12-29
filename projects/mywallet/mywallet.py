@@ -32,8 +32,35 @@ print("\n")
 print("New: '_add_'\tEdit: '_ed_'\tDelete: '_del_'\tDisplay: '_ds_'\tManual: 'manwallet'")
 print(line)
 
-dbfile = 'gamedb.db'
+dbfile = 'mywallet.db'
 
 # Create database file and table if not exist
 db = walletdbmanager(dbfile)
 db.create_table()
+
+# cmds = ["add", "ds", "done", "manwallet"]
+
+# while not done:
+#     print("\nWhat do you want to do? ")
+#     activity = input("?> ")
+
+#     if activity not in cmds:
+#         print("Command not found")
+
+#     elif activity == "done":
+#         print("\nAPPLICATION EXIT")
+#         done = True
+#         exit(0)
+
+#     else:
+#         match activity:
+#             case "add":
+#                 print("\n\t\tAdd New Category Data")
+#                 # print("\t\tNavigate the Game Mode: ")
+#                 print("\tCategory: 'c'\tQuit: 'q' ")
+#                 print("\t____________________________________________")
+#                 val = acts.anagram(gamewords).gameloop()
+            # case "ds":
+            #     val = acts.anagram(gamewords)._getrecords_()
+            # case "mangram":
+            #     val = acts.anagram(game_round).mangram()
