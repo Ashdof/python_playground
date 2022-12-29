@@ -1,17 +1,17 @@
-""" =======================     MY ANAGRAM GAME APPLICATION     ===================================
-    FILE:           GAME DATABASE CLASS
-    DATE:           04-Nov-2022
-    LAST UPDATED:   21-DEC-2022
+""" =======================     MYWALLET APPLICATION     ===================================
+    FILE:           MYWALLET DATABASE CLASS
+    DATE CREATED:   29-Dec-2022
+    LAST UPDATED:   29-DEC-2022
     DEVELOPER:      EMMANUEL ENCHILL
 
-    DESCRIPTION:    THIS CLASS FILE HAS METHODS TO CONNECT TO THE DATABASE AND PERFORM CRUD ACTIONS ON IT. IT ACTS
-                    AS THE GLUE BETWEEN THE DATABASE FILE AND GAME LOGIC CLASS THAT INTERACTS WITH THE USER.
+    DESCRIPTION:    THIS CLASS FILE HAS METHODS TO CONNECT TO THE DATABASE AND PERFORM CRUD ACTIONS. IT ACTS
+                    AS THE GLUE BETWEEN THE DATABASE FILE AND WALLET USER INTERFACE CLASS THAT INTERACTS WITH THE USER.
 """
 
 #!/usr/bin/python3
 
 import sqlite3
-from texttable import Texttable
+# from texttable import Texttable
 
 class walletdbmanager:
 
@@ -81,12 +81,11 @@ class walletdbmanager:
         """Save Record
 
         Description:
-            Commit the records to the database
+            Commit the category record to the database
 
         Arguments:
-            _date (date): the date for the game play
-            _rounds (int): an integer value that represents the game stage
-            _score (int): an integer value that represents the score of the game
+            _code (str): the code for a specified category
+            _category_name (str): the name of the category
 
         """
         try:
