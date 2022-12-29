@@ -13,7 +13,7 @@
 import sqlite3
 from texttable import Texttable
 
-class gamedbmanager:
+class walletdbmanager:
 
     def __init__(self, db_path):
         """Initialise the class with the path to the database file
@@ -22,7 +22,7 @@ class gamedbmanager:
             db_path (string):  path to the database file
 
         """
-        self._db_path = db_path
+        self.__db_path = db_path
   
 
     def db_connection(self):
@@ -32,11 +32,12 @@ class gamedbmanager:
             Create a connection to the database
 
         Returns:
-            A connection to the database 
+            A connection to the database or an sql error if it fails
         """
         try:
-            conn = sqlite3.connect(self._db_path)
+            conn = sqlite3.connect(self.__db_path)
             return conn
+
         except sqlite3.Error as e:
             print("Failed to connect: ", e)
 
@@ -44,17 +45,19 @@ class gamedbmanager:
     def create_table(self):
         """Create Table in database file
         
-        Descriotn:
-            Create a table in the database file
+        Descriptn:
+            This method creates a table in the database file with the name specified
+            by its argument
 
+        Args:
+            table_name (str): name of the table to create
         """
         try:
             conn = self.db_connection()
-            query = '''CREATE TABLE IF NOT EXISTS gamerecords(
+            query = '''CREATE TABLE IF NOT EXISTS categories(
                 id INTEGER NOT NULL,
-                curdate TEXT NOT NULL,
-                rounds INTEGER NOT NULL,
-                score NUMBER NOT NULL,
+                category_code TEXT NOT NULL,
+                category_name TEXT NOT NULL,
                 PRIMARY KEY("id" AUTOINCREMENT)
             ); '''
             
@@ -74,7 +77,7 @@ class gamedbmanager:
                 conn.close()
     
 
-    def save_record(self, _date, _rounds, _score):
+    def _commitcategory(self, _code, _category_name):
         """Save Record
 
         Description:
@@ -90,8 +93,8 @@ class gamedbmanager:
             conn = self.db_connection()
             cursor = conn.cursor()
             
-            query = "INSERT INTO gamerecords (curdate, rounds, score) VALUES (?, ?, ?)"
-            data_tuple = (_date, _rounds, _score)
+            query = "INSERT INTO categories (category_code, category_name) VALUES (?, ?)"
+            data_tuple = (_code, _category_name)
             cursor.execute(query, data_tuple)
 
             conn.commit()
@@ -107,62 +110,62 @@ class gamedbmanager:
                 conn.close()
     
 
-    def display_detail_records(self):
-        """Display Records
+    # def display_detail_records(self):
+    #     """Display Records
         
-        Description:
-            Display all information in the specified table
+    #     Description:
+    #         Display all information in the specified table
 
-        """
-        try:
-            conn = self.db_connection()
-            cursor = conn.cursor()
-            query = "SELECT * FROM gamerecords"
-            cursor.execute(query)
-            records = cursor.fetchall()
+    #     """
+    #     try:
+    #         conn = self.db_connection()
+    #         cursor = conn.cursor()
+    #         query = "SELECT * FROM gamerecords"
+    #         cursor.execute(query)
+    #         records = cursor.fetchall()
 
-            table = Texttable()
-            table.header(["Game Number", "Date", "Game Stage", "Total Score"])
-            table.set_cols_dtype(['t', 't', 't', 't'])
+    #         table = Texttable()
+    #         table.header(["Game Number", "Date", "Game Stage", "Total Score"])
+    #         table.set_cols_dtype(['t', 't', 't', 't'])
 
-            for record in records:
-                table.add_row([record[0], record[1], record[2], record[3]])
+    #         for record in records:
+    #             table.add_row([record[0], record[1], record[2], record[3]])
 
-            print("\n", table.draw())
-            print("\nNumber of records found: ", self.get_number_of_records())
+    #         print("\n", table.draw())
+    #         print("\nNumber of records found: ", self.get_number_of_records())
 
-            cursor.close()
-        except sqlite3.Error as e:
-            print("Failed to fetch records: ", e)
-        finally:
-            if conn:
-                conn.close()
+    #         cursor.close()
+    #     except sqlite3.Error as e:
+    #         print("Failed to fetch records: ", e)
+    #     finally:
+    #         if conn:
+    #             conn.close()
     
 
-    def get_number_of_records(self):
-        """Number of records
+    # def get_number_of_records(self):
+    #     """Number of records
         
-        Description:
-            Get the number of records in the table
+    #     Description:
+    #         Get the number of records in the table
         
-        Returns:
-            The number of records
+    #     Returns:
+    #         The number of records
             
-        """
-        try:
-            conn = self.db_connection()
-            cursor = conn.cursor()
-            query = "SELECT * FROM gamerecords"
-            cursor.execute(query)
-            records = cursor.fetchall()
+    #     """
+    #     try:
+    #         conn = self.db_connection()
+    #         cursor = conn.cursor()
+    #         query = "SELECT * FROM gamerecords"
+    #         cursor.execute(query)
+    #         records = cursor.fetchall()
 
-            total = len(records)
+    #         total = len(records)
 
-            cursor.close()
-            return total
+    #         cursor.close()
+    #         return total
             
-        except sqlite3.Error as e:
-            print("Failed to fetch records: ", e)
-        finally:
-            if conn:
-                conn.close()
+    #     except sqlite3.Error as e:
+    #         print("Failed to fetch records: ", e)
+    #     finally:
+    #         if conn:
+    #             conn.close()
