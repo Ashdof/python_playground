@@ -11,6 +11,8 @@
 
 #!/usr/bin/python3
 
+__line = "_______________________________________"
+
 class NewDataEntry:
 
     """Record new data
@@ -28,4 +30,39 @@ class NewDataEntry:
 
         return self.__file_path
     
-    
+    def _savenewcategory(self):
+        """Save a new category
+
+        Description:
+            This method invokes the _commitcategory() function from the dbclass module to save a new
+            category data into the database
+
+        """
+
+        faults = [" ", "@", "/", "?",";", ":", "#", "%", "&", "!", "$", "^", "*", "(", ")"]
+        done = False
+
+        while not done:
+            catecode = input("\nCategory code: ")
+
+            if catecode in faults:
+                print("{} is allowed".format(catecode))
+
+            elif catecode == "":
+                print("Save category mode cancelled")
+                done = True
+                break
+            else:
+                catename = input("Category name: ")
+
+                if catename == "" or catename == " ":
+                    print("Blanks not allowed for category names")
+                
+                result = record._commitcategory(catecode, catename)
+                if result == 0:
+                    print("{} category saved".format(catename))
+                else:
+                    print("{} category cannot be saved".format(catename))
+                
+                done = True
+                print(__line)
