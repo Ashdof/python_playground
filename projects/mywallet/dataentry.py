@@ -47,24 +47,66 @@ class NewDataEntry:
         done = False
 
         while not done:
-            catecode = input("\nCategory code: ")
+            catecode = input("\n\tCategory code: ")
 
             if catecode in faults:
-                print("{} is allowed".format(catecode))
+                print("\t{} is allowed".format(catecode))
 
             elif catecode == "":
-                print("Save category mode cancelled")
+                print("\tSave category mode cancelled")
                 done = True
                 break
             else:
-                catename = input("Category name: ")
+                catename = input("\tCategory name: ")
 
                 if catename == "" or catename == " ":
-                    print("Blanks not allowed for category names")
+                    print("\tBlanks not allowed for category names")
                 
                 record._commitcategory(catecode, catename)
-                print("{} category saved".format(catename))
+                print("\t{} category saved".format(catename))
                 
                 print("\t____________________________________________")
                 done = True
-                # print(__line)
+    
+
+    def _getrecords(self):
+        """Display Records
+
+        Description:
+            This method presents the user with options from which records can be display
+        
+        """
+        
+        done = False
+
+        print("\n\tSelect the number for a corresponding record to display\n")
+        print("\t1: Categories\n\t2: Income List\n\t3: Income Summary\n\t4: Expense List\n\t5. Expense Summary ")
+        
+        while not done:
+            val = input("\n\tNumber ?>: ")
+
+            if val == "":
+                print("\tDisplay process cancelled")
+                done = True
+                
+            else:
+                match val:
+                    case "1":
+                        record.display_list_records()
+                        done = True
+
+                    # case "2":
+                    #     record.display_names_and_codes()
+                    #     done = True
+
+                    # case "3":
+                    #     record.display_names_prof_contacts()
+                    #     done = True
+
+                    # case "4":
+                    #     record.display_names_and_numbers()
+                    #     done = True
+
+                    # case "5":
+                    #     record.display_names_email_addresses()
+                    #     done = True

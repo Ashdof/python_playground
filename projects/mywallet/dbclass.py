@@ -11,7 +11,7 @@
 #!/usr/bin/python3
 
 import sqlite3
-# from texttable import Texttable
+from texttable import Texttable
 
 class walletdbmanager:
 
@@ -109,6 +109,44 @@ class walletdbmanager:
                 conn.close()
     
 
+    def display_list_records(self):
+        """Display Category Records
+        
+        Description:
+            Display all information in the categories table
+
+        """
+        try:
+            conn = self.db_connection()
+            cursor = conn.cursor()
+            query = "SELECT * FROM categories"
+            cursor.execute(query)
+            records = cursor.fetchall()
+
+            # NOTES: 
+            # CREATE A SEPARATE CLASS THAT PURPOSEFULLY CREATES A TABLE. 
+            # THE METHODS OF THE CLASS SHOULD BE DEDICATED TO A SPECIFIC
+            # TABLE, ITS PARAMETER BEING THE NAME OF THE TABLE.
+             
+            table = Texttable()
+            table.header(["Number", "Category Code", "Category Name"])
+            table.set_cols_dtype(['t', 't', 't'])
+
+            for record in records:
+                table.add_row([record[0], record[1], record[2]])
+
+            print("\n", table.draw())
+            print("\nNumber of records found: {}".format(self.get_number_of_records("categories")))
+
+            cursor.close()
+        except sqlite3.Error as e:
+            print("Failed to fetch records: ", e)
+        finally:
+            if conn:
+                conn.close()
+
+
+
     # def display_detail_records(self):
     #     """Display Records
         
@@ -141,30 +179,33 @@ class walletdbmanager:
     #             conn.close()
     
 
-    # def get_number_of_records(self):
-    #     """Number of records
+    def get_number_of_records(self, table_name):
+        """Number of records
         
-    #     Description:
-    #         Get the number of records in the table
+        Description:
+            Get the number of records in the specified table
+
+        Args:
+            table_name (str): name of the table
         
-    #     Returns:
-    #         The number of records
+        Returns:
+            The total number of records
             
-    #     """
-    #     try:
-    #         conn = self.db_connection()
-    #         cursor = conn.cursor()
-    #         query = "SELECT * FROM gamerecords"
-    #         cursor.execute(query)
-    #         records = cursor.fetchall()
+        """
+        try:
+            conn = self.db_connection()
+            cursor = conn.cursor()
+            query = "SELECT * FROM '"+table_name+"' "
+            cursor.execute(query)
+            records = cursor.fetchall()
 
-    #         total = len(records)
+            total = len(records)
 
-    #         cursor.close()
-    #         return total
+            cursor.close()
+            return total
             
-    #     except sqlite3.Error as e:
-    #         print("Failed to fetch records: ", e)
-    #     finally:
-    #         if conn:
-    #             conn.close()
+        except sqlite3.Error as e:
+            print("Failed to fetch records: ", e)
+        finally:
+            if conn:
+                conn.close()

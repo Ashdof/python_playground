@@ -59,12 +59,15 @@ while not done:
         match activity:
             case "add":
                 print("\n\t\tAdd New Category Data")
-                # print("\t\tNavigate the Game Mode: ")
                 print("\tCategory: 'c'\tQuit: 'q' ")
                 print("\t____________________________________________")
                 dataEntery._savenewcategory()
-                # val = acts.anagram(gamewords).gameloop()
-            # case "ds":
-            #     val = acts.anagram(gamewords)._getrecords_()
+                
+            case "ds":
+                # print("\n\t\tAdd New Category Data")
+                # print("\tCategory: 'c'\tQuit: 'q' ")
+                # print("\t____________________________________________")
+                dataEntery._getrecords()
+
             # case "mangram":
             #     val = acts.anagram(game_round).mangram()
