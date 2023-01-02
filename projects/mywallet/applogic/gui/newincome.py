@@ -15,6 +15,9 @@ from tkinter import ttk
 from tkcalendar import DateEntry
 from appdb.dbclass import Walletdbmanager
 
+
+db = Walletdbmanager("./appdb/mywallet.db")
+
 root = Tk()
 root.title("New Income")
 root.geometry("350x240")
@@ -22,19 +25,13 @@ root.geometry("350x240")
 def close():
     root.destroy()
 
-# def currentdate():
-#     top = root.Toplevel(root)
-
-#     ttk.Label(top, text='Choose date').pack(padx=10, pady=10)
-
-#     cal = DateEntry(top, width=12, background='darkblue', foreground='white', borderwidth=2)
-#     cal.pack(padx=10, pady=10)
-
 def getrecords():
     data = []
-    records = Walletdbmanager.display_list_records() 
+    records = db.display_list_records() 
     for record in records:
         data.append(record)
+    
+    return data
 
 
 def main():
@@ -56,13 +53,10 @@ def main():
 
     #   ENTRIES
 
-    # Note: this list will be loaded from the database
-    # cat_list = ["Salary", "Gift", "Lottery", "Investment", "Pension", "Token"]
-
     calDate = DateEntry(width=30, background='darkblue', foreground='white', borderwidth=1)
     calDate.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 
-    comboType = ttk.Combobox(root, value=getrecords, width=30)
+    comboType = ttk.Combobox(root, value=getrecords(), width=30)
     comboType.set("Select income type")
     comboType.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 

@@ -119,11 +119,9 @@ class Walletdbmanager:
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
-            # query = "SELECT * FROM categories"
             query = "SELECT category_name FROM categories"
             cursor.execute(query)
             records = cursor.fetchall()
-            # cursor.close()
 
             return records
 
