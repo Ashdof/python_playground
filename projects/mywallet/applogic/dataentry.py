@@ -10,7 +10,7 @@
 """
 
 #!/usr/bin/python3
-import dbclass as db
+import projects.mywallet.appdb.dbclass as db
 
 dbpath = "mywallet.db"
 record = db.walletdbmanager(db_path=dbpath)
