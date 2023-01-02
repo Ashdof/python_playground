@@ -13,8 +13,8 @@
 
 #!/usr/bin/python3
 
-from dbclass import walletdbmanager
-import dataentry as de
+from .applogic.gui.appdb.dbclass import Walletdbmanager
+from .applogic.dataentry import NewDataEntry
 
 appname = "MyWallet Application"
 pro_info = "Track your personal finances; monitor every penny"
@@ -36,10 +36,10 @@ dbfile = 'mywallet.db'
 done = False
 
 # Create database file and table if not exist
-db = walletdbmanager(dbfile)
+db = Walletdbmanager(dbfile)
 # db.create_table()
 
-dataEntery = de.NewDataEntry(dbfile)
+dataEntery = NewDataEntry(dbfile)
 
 cmds = ["add", "ds", "done", "manwallet"]
 
