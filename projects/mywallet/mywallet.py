@@ -15,10 +15,6 @@
 
 from dbclass import walletdbmanager
 import dataentry as de
-from gui import newincome
-
-# newcat = newcatgui.main()
-newincome.main()
 
 appname = "MyWallet Application"
 pro_info = "Track your personal finances; monitor every penny"
@@ -28,50 +24,50 @@ line = "__________________________________________________________________"
 
 #================================   display on screen  ============================
 
-# print("\t\t", appname)
-# print("\t", pro_info)
-# print(line)
-# print(pro_info_1)
-# print("\n")
-# print("New: add\tEdit: ed\tDelete: del\tDisplay: ds\tManual: 'manwallet'")
-# print(line)
+print("\t\t", appname)
+print("\t", pro_info)
+print(line)
+print(pro_info_1)
+print("\n")
+print("New: add\tEdit: ed\tDelete: del\tDisplay: ds\tManual: 'manwallet'")
+print(line)
 
-# dbfile = 'mywallet.db'
-# done = False
+dbfile = 'mywallet.db'
+done = False
 
 # Create database file and table if not exist
-# db = walletdbmanager(dbfile)
+db = walletdbmanager(dbfile)
 # db.create_table()
 
-# dataEntery = de.NewDataEntry(dbfile)
+dataEntery = de.NewDataEntry(dbfile)
 
-# cmds = ["add", "ds", "done", "manwallet"]
+cmds = ["add", "ds", "done", "manwallet"]
 
-# while not done:
-#     print("\nWhat do you want to do? ")
-#     activity = input("?> ")
+while not done:
+    print("\nWhat do you want to do? ")
+    activity = input("?> ")
 
-#     if activity not in cmds:
-#         print("Command not found")
+    if activity not in cmds:
+        print("Command not found")
 
-#     elif activity == "done":
-#         print("\nAPPLICATION EXIT")
-#         done = True
-#         exit(0)
+    elif activity == "done":
+        print("\nAPPLICATION EXIT")
+        done = True
+        exit(0)
 
-#     else:
-#         match activity:
-#             case "add":
-#                 print("\n\t\tAdd New Category Data")
-#                 print("\tCategory: 'c'\tQuit: 'q' ")
-#                 print("\t____________________________________________")
-#                 dataEntery._savenewcategory()
+    else:
+        match activity:
+            case "add":
+                print("\n\t\tAdd New Category Data")
+                print("\tCategory: 'c'\tQuit: 'q' ")
+                print("\t____________________________________________")
+                dataEntery._savenewcategory()
                 
-#             case "ds":
-                # print("\n\t\tAdd New Category Data")
-                # print("\tCategory: 'c'\tQuit: 'q' ")
-                # print("\t____________________________________________")
-                # dataEntery._getrecords()
+            case "ds":
+                print("\n\t\tAdd New Category Data")
+                print("\tCategory: 'c'\tQuit: 'q' ")
+                print("\t____________________________________________")
+                dataEntery._getrecords()
 
             # case "mangram":
-            #     val = acts.anagram(game_round).mangram()
+                # val = acts.anagram(game_round).mangram()
