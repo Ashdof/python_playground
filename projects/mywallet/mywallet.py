@@ -13,7 +13,7 @@
 
 #!/usr/bin/python3
 
-from gui.applogic.appdb.dbclass import Walletdbmanager
+from gui.applogic.walletdbdir.dbclass import Walletdbmanager
 from gui.applogic.dataentry import NewDataEntry
 
 appname = "MyWallet Application"
