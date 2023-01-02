@@ -12,23 +12,23 @@
 #!/usr/bin/python3
 from tkinter import *
 from tkinter import ttk
+from tkcalendar import DateEntry
 
 root = Tk()
 root.title("New Income")
-root.geometry("330x210")
+root.geometry("350x240")
 
 def close():
     root.destroy()
 
-def current_date():
-    cal = root.Toplevel()
+# def currentdate():
+#     top = root.Toplevel(root)
 
-    datelabel = Label(cal, )
+#     ttk.Label(top, text='Choose date').pack(padx=10, pady=10)
 
-    # top = tk.Toplevel(root)
-    # ttk.Label(top, text='Choose date').pack(padx=10, pady=10)
-    # cal = DateEntry(top, width=12, background='darkblue', foreground='white', borderwidth=2)
-    # cal.pack(padx=10, pady=10)
+#     cal = DateEntry(top, width=12, background='darkblue', foreground='white', borderwidth=2)
+#     cal.pack(padx=10, pady=10)
+
 
 def main():
     #   LABELS
@@ -38,33 +38,40 @@ def main():
     lblDate= Label(root, text="Date: ")
     lblDate.grid(row=1, column=0, padx=2, pady=2, sticky=W)
 
-    lblName = Label(root, text="Name: ")
-    lblName.grid(row=2, column=0, padx=2, pady=2, sticky=W)
+    lblCategory = Label(root, text="Category: ")
+    lblCategory.grid(row=2, column=0, padx=2, pady=2, sticky=W)
+
+    lblAmount = LabelFrame(root, text="Amount: ")
+    lblAmount.grid(row=3, column=0, padx=2, pady=2, sticky=W)
 
     lblDetails = Label(root, text="Details: ")
-    lblDetails.grid(row=3, column=0, padx=2, pady=2, sticky=NW)
+    lblDetails.grid(row=4, column=0, padx=2, pady=2, sticky=NW)
 
     #   ENTRIES
 
-    cat_list = ["Income", "Expense"]
+    # Note: this list will be loaded from the database
+    cat_list = ["Salary", "Gift", "Lottery", "Investment", "Pension", "Token"]
+
+    calDate = DateEntry(width=30, background='darkblue', foreground='white', borderwidth=1)
+    calDate.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 
     comboType = ttk.Combobox(root, value=cat_list, width=30)
-    comboType.set("Select category type")
-    comboType.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=W)
+    comboType.set("Select income type")
+    comboType.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 
-    txtName = Entry(root, width=30)
-    txtName.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=N+S+W+E)
+    txtAmount = Entry(root, width=30)
+    txtAmount.grid(row=3, column=1, columnspan=2, padx=2, pady=2, sticky=N+S+W+E)
 
     txtDetails = Text(root, width=30, height=5)
-    txtDetails.grid(row=3, column=1, columnspan=2, padx=2, pady=2, sticky=N+S+W+E)
+    txtDetails.grid(row=4, column=1, columnspan=2, padx=2, pady=2, sticky=N+S+W+E)
 
     #   BUTTONS
 
     btnCancel = Button(root, text=" Cancel ", command=close)
-    btnCancel.grid(row=4, column=1, padx=2, pady=2, sticky=N+S+W+E)
+    btnCancel.grid(row=5, column=1, padx=2, pady=2, sticky=N+S+W+E)
 
     btnSave = Button(root, text=" Save ")
-    btnSave.grid(row=4, column=2, padx=2, pady=2, sticky=N+S+W+E)
+    btnSave.grid(row=5, column=2, padx=2, pady=2, sticky=N+S+W+E)
 
     root.mainloop()
 
