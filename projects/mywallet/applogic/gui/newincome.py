@@ -10,12 +10,15 @@
 """
 
 #!/usr/bin/python3
+
+
 from tkinter import *
 from tkinter import ttk
 from tkcalendar import DateEntry
 from appdb.dbclass import Walletdbmanager
 
 
+# Pass path to the database file
 db = Walletdbmanager("./appdb/mywallet.db")
 
 root = Tk()
@@ -23,9 +26,19 @@ root.title("New Income")
 root.geometry("350x240")
 
 def close():
+    """Function to exit the gui"""
     root.destroy()
 
 def getrecords():
+    """Get records
+
+    Description:
+        This method creates a list with the elements received from calling
+        the display_list_records function from the database file
+    
+    Returns:
+        A lists of element created with the names received
+    """
     data = []
     records = db.display_list_records() 
     for record in records:
@@ -35,6 +48,16 @@ def getrecords():
 
 
 def main():
+    """Main method
+
+    Description"
+        All the widgets and their layout on the graphical user interface are
+        defined in this method. All other methods which perform other related tasks
+        are also invoked in this method. Invoking this method therefore displays the
+        gui on the screen
+        
+    """
+    
     #   LABELS
     lblTitle = Label(root, text="Record new income")
     lblTitle.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=W)
