@@ -13,11 +13,14 @@
 from tkinter import *
 from tkinter import ttk
 
-def main():
-    root = Tk()
-    root.title("New Category")
-    root.geometry("330x210")
+root = Tk()
+root.title("New Category")
+root.geometry("330x210")
 
+def close():
+    root.destroy()
+
+def main():
     #   LABELS
     lblTitle = Label(root, text="Create a new category")
     lblTitle.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=W)
@@ -47,7 +50,7 @@ def main():
 
     #   BUTTONS
 
-    btnCancel = Button(root, text=" Cancel ")
+    btnCancel = Button(root, text=" Cancel ", command=close)
     btnCancel.grid(row=4, column=1, padx=2, pady=2, sticky=N+S+W+E)
 
     btnSave = Button(root, text=" Save ")
