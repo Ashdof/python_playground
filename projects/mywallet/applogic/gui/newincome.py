@@ -13,7 +13,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkcalendar import DateEntry
-# from  import Walletdbmanager as db
+from appdb.dbclass import Walletdbmanager as db
 
 root = Tk()
 root.title("New Income")
