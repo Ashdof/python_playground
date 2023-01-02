@@ -11,7 +11,7 @@
 #!/usr/bin/python3
 
 import sqlite3
-from texttable import Texttable
+# from texttable import Texttable
 
 class Walletdbmanager:
 
