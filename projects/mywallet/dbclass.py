@@ -13,7 +13,7 @@
 import sqlite3
 from texttable import Texttable
 
-class walletdbmanager:
+class Walletdbmanager:
 
     def __init__(self, db_path):
         """Initialise the class with the path to the database file
@@ -119,30 +119,35 @@ class walletdbmanager:
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
-            query = "SELECT * FROM categories"
+            # query = "SELECT * FROM categories"
+            query = "SELECT category_name FROM categories"
             cursor.execute(query)
             records = cursor.fetchall()
+            # cursor.close()
+
+            return records
 
             # NOTES: 
             # CREATE A SEPARATE CLASS THAT PURPOSEFULLY CREATES A TABLE. 
             # THE METHODS OF THE CLASS SHOULD BE DEDICATED TO A SPECIFIC
             # TABLE, ITS PARAMETER BEING THE NAME OF THE TABLE.
              
-            table = Texttable()
-            table.header(["Number", "Category Code", "Category Name"])
-            table.set_cols_dtype(['t', 't', 't'])
+            # table = Texttable()
+            # table.header(["Number", "Category Code", "Category Name"])
+            # table.set_cols_dtype(['t', 't', 't'])
 
-            for record in records:
-                table.add_row([record[0], record[1], record[2]])
+            # for record in records:
+            #     table.add_row([record[0], record[1], record[2]])
 
-            print("\n", table.draw())
-            print("\nNumber of records found: {}".format(self.get_number_of_records("categories")))
+            # print("\n", table.draw())
+            # print("\nNumber of records found: {}".format(self.get_number_of_records("categories")))
 
-            cursor.close()
+            # cursor.close()
         except sqlite3.Error as e:
             print("Failed to fetch records: ", e)
         finally:
             if conn:
+                cursor.close()
                 conn.close()
 
 
