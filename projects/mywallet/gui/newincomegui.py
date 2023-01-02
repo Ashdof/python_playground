@@ -15,7 +15,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkcalendar import DateEntry
-from appdb.dbclass import Walletdbmanager
+from applogic.appdb.dbclass import Walletdbmanager
 
 # Pass path to the database file
 db = Walletdbmanager("./appdb/mywallet.db")

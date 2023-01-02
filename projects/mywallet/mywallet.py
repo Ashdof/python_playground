@@ -13,8 +13,8 @@
 
 #!/usr/bin/python3
 
-from .applogic.gui.appdb.dbclass import Walletdbmanager
-from .applogic.dataentry import NewDataEntry
+from gui.applogic.appdb.dbclass import Walletdbmanager
+from gui.applogic.dataentry import NewDataEntry
 
 appname = "MyWallet Application"
 pro_info = "Track your personal finances; monitor every penny"
