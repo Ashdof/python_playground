@@ -13,7 +13,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkcalendar import DateEntry
-from appdb.dbclass import Walletdbmanager as db
+from appdb.dbclass import Walletdbmanager
 
 root = Tk()
 root.title("New Income")
@@ -32,7 +32,7 @@ def close():
 
 def getrecords():
     data = []
-    records = db.display_list_records()
+    records = Walletdbmanager.display_list_records() 
     for record in records:
         data.append(record)
 
@@ -62,7 +62,7 @@ def main():
     calDate = DateEntry(width=30, background='darkblue', foreground='white', borderwidth=1)
     calDate.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 
-    comboType = ttk.Combobox(root, value=getrecords(), width=30)
+    comboType = ttk.Combobox(root, value=getrecords, width=30)
     comboType.set("Select income type")
     comboType.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 
