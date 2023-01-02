@@ -18,9 +18,20 @@ root.title("New Category")
 root.geometry("330x210")
 
 def close():
+    """Function to close the gui frame"""
     root.destroy()
 
 def main():
+    """Main method
+
+    Description"
+        All the widgets and their layout on the graphical user interface are
+        defined in this method. All other methods which perform other related tasks
+        are also invoked in this method. Invoking this method therefore displays the
+        gui on the screen
+        
+    """
+
     #   LABELS
     lblTitle = Label(root, text="Create a new category")
     lblTitle.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=W)
