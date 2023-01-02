@@ -10,10 +10,11 @@
 """
 
 #!/usr/bin/python3
-import projects.mywallet.appdb.dbclass as db
+
+from .gui.appdb import dbclass as db
 
 dbpath = "mywallet.db"
-record = db.walletdbmanager(db_path=dbpath)
+record = db.Walletdbmanager(db_path=dbpath)
 
 __line = "_______________________________________"
 
