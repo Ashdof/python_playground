@@ -17,9 +17,9 @@ from tkinter import ttk
 from tkcalendar import DateEntry
 from appdb.dbclass import Walletdbmanager
 
-
 # Pass path to the database file
 db = Walletdbmanager("./appdb/mywallet.db")
+
 
 root = Tk()
 root.title("New Income")
@@ -27,6 +27,7 @@ root.geometry("350x240")
 
 def close():
     """Function to exit the gui"""
+    print("[.] Application closed")
     root.destroy()
 
 def getrecords():
