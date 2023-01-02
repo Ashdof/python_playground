@@ -2,7 +2,7 @@
     =======================     MYWALLET APPLICATION     ===================================
     FILE:                   USER INTERFACE CLASS
     DATE:                   29-DEC-2022
-    LAST UPDATED:           29-DEC-2022
+    LAST UPDATED:           02-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
     DESCRIPTION:            THIS IS A SIMPLE PERSONAL FINANCE MANAGEMENT APPLICATION
@@ -15,6 +15,7 @@
 
 from dbclass import walletdbmanager
 import dataentry as de
+from gui import newcatgui as newcateogry
 
 appname = "MyWallet Application"
 pro_info = "Track your personal finances; monitor every penny"
@@ -42,32 +43,33 @@ db = walletdbmanager(dbfile)
 dataEntery = de.NewDataEntry(dbfile)
 
 cmds = ["add", "ds", "done", "manwallet"]
+newcateogry.main()
 
-while not done:
-    print("\nWhat do you want to do? ")
-    activity = input("?> ")
+# while not done:
+#     print("\nWhat do you want to do? ")
+#     activity = input("?> ")
 
-    if activity not in cmds:
-        print("Command not found")
+#     if activity not in cmds:
+#         print("Command not found")
 
-    elif activity == "done":
-        print("\nAPPLICATION EXIT")
-        done = True
-        exit(0)
+#     elif activity == "done":
+#         print("\nAPPLICATION EXIT")
+#         done = True
+#         exit(0)
 
-    else:
-        match activity:
-            case "add":
-                print("\n\t\tAdd New Category Data")
-                print("\tCategory: 'c'\tQuit: 'q' ")
-                print("\t____________________________________________")
-                dataEntery._savenewcategory()
+#     else:
+#         match activity:
+#             case "add":
+#                 print("\n\t\tAdd New Category Data")
+#                 print("\tCategory: 'c'\tQuit: 'q' ")
+#                 print("\t____________________________________________")
+#                 dataEntery._savenewcategory()
                 
-            case "ds":
+#             case "ds":
                 # print("\n\t\tAdd New Category Data")
                 # print("\tCategory: 'c'\tQuit: 'q' ")
                 # print("\t____________________________________________")
-                dataEntery._getrecords()
+                # dataEntery._getrecords()
 
             # case "mangram":
             #     val = acts.anagram(game_round).mangram()
