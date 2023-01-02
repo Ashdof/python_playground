@@ -1,11 +1,11 @@
 """
     =======================     MYWALLET APPLICATION     ===================================
-    FILE:                   NEW CATEGORY GUI
+    FILE:                   NEW INCOME GUI
     DATE:                   02-JAN-2023
     LAST UPDATED:           02-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
-    DESCRIPTION:            THIS IS THE NEW CATEGORY REGISTRY GUI.
+    DESCRIPTION:            THIS IS THE NEW INCOME REGISTRY GUI.
 
 """
 
@@ -14,19 +14,29 @@ from tkinter import *
 from tkinter import ttk
 
 root = Tk()
-root.title("New Category")
+root.title("New Income")
 root.geometry("330x210")
 
 def close():
     root.destroy()
 
+def current_date():
+    cal = root.Toplevel()
+
+    datelabel = Label(cal, )
+
+    # top = tk.Toplevel(root)
+    # ttk.Label(top, text='Choose date').pack(padx=10, pady=10)
+    # cal = DateEntry(top, width=12, background='darkblue', foreground='white', borderwidth=2)
+    # cal.pack(padx=10, pady=10)
+
 def main():
     #   LABELS
-    lblTitle = Label(root, text="Create a new category")
+    lblTitle = Label(root, text="Record new income")
     lblTitle.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=W)
 
-    lblType = Label(root, text="Type: ")
-    lblType.grid(row=1, column=0, padx=2, pady=2, sticky=W)
+    lblDate= Label(root, text="Date: ")
+    lblDate.grid(row=1, column=0, padx=2, pady=2, sticky=W)
 
     lblName = Label(root, text="Name: ")
     lblName.grid(row=2, column=0, padx=2, pady=2, sticky=W)
@@ -59,6 +69,6 @@ def main():
     root.mainloop()
 
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
 
-#     main()
+    main()
