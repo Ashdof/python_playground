@@ -11,7 +11,7 @@
 
 #!/usr/bin/python3
 
-from walletdbdir import dbclass as db
+import dbclass as db
 
 dbpath = "mywallet.db"
 record = db.Walletdbmanager(db_path=dbpath)

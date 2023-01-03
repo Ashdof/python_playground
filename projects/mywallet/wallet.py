@@ -12,7 +12,7 @@
 
 #!/usr/bin/python3
 
-from walletdbdir.dbclass import Walletdbmanager
+from dbclass import Walletdbmanager
 
 
 # Pass path to the database file
