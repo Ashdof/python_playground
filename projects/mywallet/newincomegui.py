@@ -54,7 +54,7 @@ def main():
     lblCategory = Label(root, text="Category: ")
     lblCategory.grid(row=2, column=0, padx=2, pady=2, sticky=W)
 
-    lblAmount = LabelFrame(root, text="Amount: ")
+    lblAmount = Label(root, text="Amount: ")
     lblAmount.grid(row=3, column=0, padx=2, pady=2, sticky=W)
 
     lblDetails = Label(root, text="Details: ")
