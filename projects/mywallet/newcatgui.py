@@ -19,6 +19,7 @@ root.geometry("330x210")
 
 def close():
     """Function to close the gui frame"""
+    print("[X] Application closed")
     root.destroy()
 
 def main():
