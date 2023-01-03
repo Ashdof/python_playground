@@ -80,7 +80,7 @@ def main():
     btnCancel = Button(root, text=" Cancel ", command=close)
     btnCancel.grid(row=5, column=1, padx=2, pady=2, sticky=N+S+W+E)
 
-    btnSave = Button(root, text=" Save ")
+    btnSave = Button(root, text=" Save ", command=apl.saveIncomeCategory())
     btnSave.grid(row=5, column=2, padx=2, pady=2, sticky=N+S+W+E)
 
     root.mainloop()

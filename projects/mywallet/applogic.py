@@ -45,3 +45,17 @@ class ApplicationLogic:
             data.append(record)
         
         return data
+
+    def saveIncomeCategory(self):
+        """Save Income Category
+        
+            Description:
+                This method takes data from the income category gui and passes them to the
+                dbclass module to be committed to the database
+            
+            Returns:
+                1 on success or 0 if it fails
+        """
+
+        print("[.] Save button clicked")
+        print("[.] This is just a placeholder to test this function")
