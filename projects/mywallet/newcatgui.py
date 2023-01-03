@@ -13,6 +13,11 @@
 from tkinter import *
 from tkinter import ttk
 
+from applogic import ApplicationLogic
+
+
+apl = ApplicationLogic()
+
 root = Tk()
 root.title("New Category")
 root.geometry("330x210")
@@ -65,7 +70,7 @@ def main():
     btnCancel = Button(root, text=" Cancel ", command=close)
     btnCancel.grid(row=4, column=1, padx=2, pady=2, sticky=N+S+W+E)
 
-    btnSave = Button(root, text=" Save ")
+    btnSave = Button(root, text=" Save ", command=apl.saveCategoryData)
     btnSave.grid(row=4, column=2, padx=2, pady=2, sticky=N+S+W+E)
 
     root.mainloop()
