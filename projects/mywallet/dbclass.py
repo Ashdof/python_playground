@@ -77,7 +77,7 @@ class Walletdbmanager:
                 conn.close()
     
 
-    def _commitcategory(self, _code, _category_name):
+    def _commitcategory(self, _category_name, _category_type, _details):
         """Save Record
 
         Description:
@@ -93,7 +93,7 @@ class Walletdbmanager:
             cursor = conn.cursor()
             
             query = "INSERT INTO categories (category_code, category_name) VALUES (?, ?)"
-            data_tuple = (_code, _category_name)
+            data_tuple = (_category_name, _category_type, _details)
             cursor.execute(query, data_tuple)
 
             conn.commit()
