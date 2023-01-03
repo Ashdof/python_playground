@@ -27,6 +27,13 @@ def close():
     print("[X] Application closed")
     root.destroy()
 
+def messageWindow(message):
+    msgTop = Tk.Toplevel(root)
+
+    Label(msgTop, text=message).pack(padx=2, pady=2)
+    ttk.Button(msgTop, text=" OK ", command=close).pack()
+
+
 def main():
     """Main method
 
