@@ -28,7 +28,7 @@ class ApplicationLogic:
     def __init__(self):
        pass
 
-    def getrecords(self):
+    def getCategoryRecords(self):
         """Get records
 
         Description:
@@ -46,7 +46,7 @@ class ApplicationLogic:
         
         return data
 
-    def saveIncomeCategory(self):
+    def saveIncomeData(self):
         """Save Income Category
         
             Description:

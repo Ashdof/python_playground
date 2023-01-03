@@ -30,7 +30,7 @@ root.geometry("350x240")
 
 def close():
     """Function to exit the gui"""
-    print("[.] Application closed")
+    print("[X] Application closed")
     root.destroy()
 
 def main():
@@ -65,7 +65,7 @@ def main():
     calDate = DateEntry(width=30, background='darkblue', foreground='white', borderwidth=1)
     calDate.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 
-    comboType = ttk.Combobox(root, value=apl.getrecords(), width=30)
+    comboType = ttk.Combobox(root, value=apl.getCategoryRecords(), width=30)
     comboType.set("Select income type")
     comboType.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 
@@ -80,7 +80,7 @@ def main():
     btnCancel = Button(root, text=" Cancel ", command=close)
     btnCancel.grid(row=5, column=1, padx=2, pady=2, sticky=N+S+W+E)
 
-    btnSave = Button(root, text=" Save ", command=apl.saveIncomeCategory())
+    btnSave = Button(root, text=" Save ", command=apl.saveIncomeData)
     btnSave.grid(row=5, column=2, padx=2, pady=2, sticky=N+S+W+E)
 
     root.mainloop()
