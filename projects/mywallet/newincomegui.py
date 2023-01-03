@@ -33,24 +33,6 @@ def close():
     print("[.] Application closed")
     root.destroy()
 
-def getrecords():
-    """Get records
-
-    Description:
-        This method creates a list with the elements received from calling
-        the display_list_records function from the database file
-    
-    Returns:
-        A lists of element created with the names received
-    """
-    data = []
-    records = db.display_list_records() 
-    for record in records:
-        data.append(record)
-    
-    return data
-
-
 def main():
     """Main method
 
@@ -83,7 +65,7 @@ def main():
     calDate = DateEntry(width=30, background='darkblue', foreground='white', borderwidth=1)
     calDate.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 
-    comboType = ttk.Combobox(root, value=getrecords(), width=30)
+    comboType = ttk.Combobox(root, value=apl.getrecords(), width=30)
     comboType.set("Select income type")
     comboType.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=W)
 

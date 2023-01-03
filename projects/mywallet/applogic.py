@@ -16,7 +16,7 @@ from dbclass import Walletdbmanager
 
 
 # Pass path to the database file
-db = Walletdbmanager("./appdb/mywallet.db")
+db = Walletdbmanager("./mywallet.db")
 
 class ApplicationLogic:
     """Application Logic Class
