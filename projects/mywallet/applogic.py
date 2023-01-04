@@ -61,7 +61,7 @@ class ApplicationLogic:
         print("[.] This is just a placeholder to test this function")
     
 
-    def saveCategoryData(self):
+    def saveCategoryData(self, categoryType, categoryName, categoryDetails):
         """Save New Category Data
         
             Description:
@@ -73,4 +73,10 @@ class ApplicationLogic:
         """
 
         print("[.] Save button clicked")
-        print("[.] This is just a placeholder to test this function")
+        print()
+        print("Category Information")
+        print("Category type: {}\nCategory name: {}\nCategory details: {}".format(categoryType, categoryName, categoryDetails))
+        print()
+        print("[.] This is just a placeholder to test the save category data function")
+
+        return 0

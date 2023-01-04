@@ -10,18 +10,30 @@
 """
 
 #!/usr/bin/python3
-from tkinter import *
+# from tkinter import tkinter as tk
+import tkinter as tk
 from tkinter import ttk
 
 from applogic import ApplicationLogic
 
-
 apl = ApplicationLogic()
 
-root = Tk()
+
+
+root = tk.Tk()
 root.title("New Category")
 root.geometry("330x210")
+root.resizable(width=False, height=False)   # Frame size manipulation
 
+def saveData():
+    
+    catType = comboType.get()
+    catName = txtName.get()
+    catDetails = txtDetails.get()
+
+    save = apl.saveCategoryData(catType, catName, catDetails)
+    if save == 0:
+        print("[.] Data saved!")
 
 def main():
     """Main method
@@ -35,17 +47,17 @@ def main():
     """
 
     #   LABELS
-    lblTitle = Label(root, text="Create a new category")
-    lblTitle.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=W)
+    lblTitle = tk.Label(root, text="Create a new category")
+    lblTitle.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=tk.W)
 
-    lblType = Label(root, text="Type: ")
-    lblType.grid(row=1, column=0, padx=2, pady=2, sticky=W)
+    lblType = tk.Label(root, text="Type: ")
+    lblType.grid(row=1, column=0, padx=2, pady=2, sticky=tk.W)
 
-    lblName = Label(root, text="Name: ")
-    lblName.grid(row=2, column=0, padx=2, pady=2, sticky=W)
+    lblName = tk.Label(root, text="Name: ")
+    lblName.grid(row=2, column=0, padx=2, pady=2, sticky=tk.W)
 
-    lblDetails = Label(root, text="Details: ")
-    lblDetails.grid(row=3, column=0, padx=2, pady=2, sticky=NW)
+    lblDetails = tk.Label(root, text="Details: ")
+    lblDetails.grid(row=3, column=0, padx=2, pady=2, sticky=tk.NW)
 
     #   ENTRIES
 
@@ -53,23 +65,25 @@ def main():
 
     comboType = ttk.Combobox(root, value=cat_list, width=30)
     comboType.set("Select category type")
-    comboType.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=W)
+    comboType.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
 
-    txtName = Entry(root, width=30)
-    txtName.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=N+S+W+E)
+    txtName = tk.Entry(root, width=30)
+    txtName.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
-    txtDetails = Text(root, width=30, height=5)
-    txtDetails.grid(row=3, column=1, columnspan=2, padx=2, pady=2, sticky=N+S+W+E)
+    txtDetails = tk.Text(root, width=30, height=5)
+    txtDetails.grid(row=3, column=1, columnspan=2, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
     #   BUTTONS
 
-    btnCancel = Button(root, text=" Cancel ", command=close)
-    btnCancel.grid(row=4, column=1, padx=2, pady=2, sticky=N+S+W+E)
+    btnCancel = tk.Button(root, text=" Cancel ", command=close)
+    btnCancel.grid(row=4, column=1, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
-    btnSave = Button(root, text=" Save ", command=apl.saveCategoryData)
-    btnSave.grid(row=4, column=2, padx=2, pady=2, sticky=N+S+W+E)
+    btnSave = tk.Button(root, text=" Save ", command=saveData)
+    btnSave.grid(row=4, column=2, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
     root.mainloop()
+
+
 
 def close():
     """Function to close the gui frame"""
