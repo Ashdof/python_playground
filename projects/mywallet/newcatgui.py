@@ -22,10 +22,6 @@ root = Tk()
 root.title("New Category")
 root.geometry("330x210")
 
-def close():
-    """Function to close the gui frame"""
-    print("[X] Application closed")
-    root.destroy()
 
 def main():
     """Main method
@@ -74,6 +70,11 @@ def main():
     btnSave.grid(row=4, column=2, padx=2, pady=2, sticky=N+S+W+E)
 
     root.mainloop()
+
+def close():
+    """Function to close the gui frame"""
+    print("[X] Application closed")
+    root.destroy()
 
 
 if __name__ == '__main__':
