@@ -102,7 +102,7 @@ def aggregateData():
     elif catName == "":
         displayMessages(blanktext)
         
-    elif catDetails == "":
+    elif str(catDetails).isspace():
         displayMessages(blankdetails)
 
     else:
