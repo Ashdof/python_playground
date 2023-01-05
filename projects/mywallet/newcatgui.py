@@ -25,7 +25,17 @@ root.geometry("330x210")
 root.resizable(width=False, height=False)   # Frame size manipulation
 
 
-def saveData():
+def aggregateData():
+    """Aggregate Data
+
+    Description:
+        This method collects data entered by the user from the gui widgets,
+        checks for invalid entries and if any, display the error message in
+        red text in the title label on the gui. It then invokes a method
+        in the backend module (applogic mofule) and passes the collected data
+        to it to be saved to the database
+    
+    """
     
     catType = comboType.get()
     catName = txtName.get()
@@ -35,6 +45,17 @@ def saveData():
     if save == 0:
         print("[.] Data saved!")
 
+def messages(msg):
+    """Display Messages
+
+    Description:
+        This method, when invoked takes a message via its parameter
+        and displays the text in red
+    
+    Args:
+        msg (str): the message to be displayed to the user
+
+    """
 
 def close():
     """Function to close the gui frame"""
@@ -75,7 +96,7 @@ txtDetails.grid(row=3, column=1, columnspan=2, padx=2, pady=2, sticky=tk.N+tk.S+
 btnCancel = tk.Button(root, text=" Cancel ", command=close)
 btnCancel.grid(row=4, column=1, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
-btnSave = tk.Button(root, text=" Save ", command=saveData)
+btnSave = tk.Button(root, text=" Save ", command=aggregateData)
 btnSave.grid(row=4, column=2, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 root.mainloop()
