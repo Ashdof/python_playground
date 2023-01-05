@@ -22,7 +22,7 @@ apl = ApplicationLogic()
 root = tk.Tk()
 root.title("New Category")
 root.geometry("330x230")
-root.resizable(width=False, height=True)   # Frame size manipulation
+root.resizable(width=False, height=False)   # Frame size manipulation
 
 
 def displayMessages(msg_value):
@@ -51,22 +51,28 @@ def displayMessages(msg_value):
     lblMsg = tk.Label(root)
 
     match msg_value:
+
         case 1:
-            # text = lblMsg["text"]
-            # lblMsg["text"] = " "
             lblMsg["text"] = saved
             lblMsg["fg"] = "green"
             
         case 2:
-            lblMsg = tk.Label(root, text=error, fg="red")
-        case 3:
-            lblMsg = tk.Label(root, text=blank_text, fg="red")
-        case 4:
-            lblMsg = tk.Label(root, text=blank_combo, fg="red")
-        case 5:
-            lblMsg = tk.Label(root, text=blank_area, fg="red")
+            lblMsg["text"] = error
+            lblMsg["fg"] = "red"
 
-    lblMsg.grid(row=5, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
+        case 3:
+            lblMsg["text"] = blank_text
+            lblMsg["fg"] = "red"
+
+        case 4:
+            lblMsg["text"] = blank_combo
+            lblMsg["fg"] = "red"
+
+        case 5:
+            lblMsg["text"] = blank_area
+            lblMsg["fg"] = "red"
+
+    lblMsg.grid(row=5, column=1, columnspan=2, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 
 def aggregateData():
