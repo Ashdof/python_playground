@@ -48,18 +48,22 @@ def displayMessages(msg_value):
     blank_combo = "Select a category type"
     blank_area = "Category description cannot be blank"
 
-    lblMsg = tk.Label(root, text=saved, fg="red")
+    lblMsg = tk.Label(root)
 
     match msg_value:
         case 1:
-            lblMsg = tk.Label(root, text=saved, fg="green")
+            # text = lblMsg["text"]
+            # lblMsg["text"] = " "
+            lblMsg["text"] = saved
+            lblMsg["fg"] = "green"
+            
         case 2:
             lblMsg = tk.Label(root, text=error, fg="red")
-        case 2:
-            lblMsg = tk.Label(root, text=blank_text, fg="red")
         case 3:
-            lblMsg = tk.Label(root, text=blank_combo, fg="red")
+            lblMsg = tk.Label(root, text=blank_text, fg="red")
         case 4:
+            lblMsg = tk.Label(root, text=blank_combo, fg="red")
+        case 5:
             lblMsg = tk.Label(root, text=blank_area, fg="red")
 
     lblMsg.grid(row=5, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
@@ -86,11 +90,21 @@ def aggregateData():
     catName = txtName.get()
     catDetails = txtDetails.get("1.0", tk.END)
 
-    save = apl.saveCategoryData(catType, catName, catDetails)
-    if save == 0:
-        displayMessages(saved)
+    if catType == "Select category type":
+        displayMessages(combo)
+
+    elif catName == "":
+        displayMessages(blanktext)
+        
+    elif catDetails == "":
+        displayMessages(blankdetails)
+
     else:
-        displayMessages(error)
+        save = apl.saveCategoryData(catType, catName, catDetails)
+        if save == 0:
+            displayMessages(saved)
+        else:
+            displayMessages(error)
 
 
 def close():
