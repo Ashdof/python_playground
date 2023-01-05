@@ -2,7 +2,7 @@
     =======================     MYWALLET APPLICATION     ===================================
     FILE:                   NEW CATEGORY GUI
     DATE:                   02-JAN-2023
-    LAST UPDATED:           03-JAN-2023
+    LAST UPDATED:           05-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
     DESCRIPTION:            THIS IS THE NEW CATEGORY REGISTRY GUI.

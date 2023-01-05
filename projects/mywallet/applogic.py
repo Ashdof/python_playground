@@ -2,7 +2,7 @@
     =======================     MYWALLET APPLICATION     ===================================
     FILE:                   APPLICATION LOGIC
     DATE:                   02-JAN-2023
-    LAST UPDATED:           03-JAN-2023
+    LAST UPDATED:           05-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
     DESCRIPTION:            THIS IS THE APPLICATION LOGIC THAT INTERRACTS WITH AND REGULATES THE FLOW OF 
