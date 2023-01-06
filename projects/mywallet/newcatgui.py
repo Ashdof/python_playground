@@ -2,7 +2,7 @@
     =======================     MYWALLET APPLICATION     ===================================
     FILE:                   NEW CATEGORY GUI
     DATE:                   02-JAN-2023
-    LAST UPDATED:           05-JAN-2023
+    LAST UPDATED:           06-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
     DESCRIPTION:            THIS IS THE NEW CATEGORY REGISTRY GUI.
@@ -112,7 +112,7 @@ def aggregateCategoryData():
         saveCategory._commitcategory(catName, catType, catDetails)
         if saveCategory:
             displayMessages(saved)
-            
+
         else:
             displayMessages(error)
 
