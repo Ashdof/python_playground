@@ -120,7 +120,8 @@ def aggregateExpenseData():
 
     else:
 
-        save = db._commitincome(_expenseDate, _expenseType, _expenseAmount, _expenseDetails)
+        # save = db._commitincome(_expenseDate, _expenseType, _expenseAmount, _expenseDetails)
+        save = db._commitexpense(_expenseDate, _expenseType, _expenseAmount, _expenseDetails)
         if save == 0:
             displayMessages(saved)
         else:
