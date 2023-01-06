@@ -21,7 +21,7 @@ from applogic import ApplicationLogic
 
 # Pass path to the database file
 db = Walletdbmanager("./mywallet.db")
-apl = ApplicationLogic()
+# apl = ApplicationLogic()
 
 
 root = tk.Tk()
@@ -138,7 +138,8 @@ def aggregateIncomeData():
         displayMessages(blank_details)
 
     else:
-        save = apl.saveIncomeData(_incomeDate, _incomeType, float(_incomeAmount), _incomeDetails)
+
+        save = db._commitincome(_incomeDate, _incomeType, _incomeAmount, _incomeDetails)
         if save == 0:
             displayMessages(saved)
         else:
