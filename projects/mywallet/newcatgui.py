@@ -75,7 +75,7 @@ def displayMessages(msg_value):
     lblMsg.grid(row=5, column=1, columnspan=2, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 
-def aggregateData():
+def aggregateCategoryData():
     """Aggregate Data
 
     Description:
@@ -154,7 +154,7 @@ txtDetails.grid(row=3, column=1, columnspan=2, padx=2, pady=2, sticky=tk.N+tk.S+
 btnCancel = tk.Button(root, text=" Cancel ", command=close)
 btnCancel.grid(row=4, column=1, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
-btnSave = tk.Button(root, text=" Save ", command=aggregateData)
+btnSave = tk.Button(root, text=" Save ", command=aggregateCategoryData)
 btnSave.grid(row=4, column=2, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 root.mainloop()
