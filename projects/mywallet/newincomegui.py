@@ -26,7 +26,8 @@ apl = ApplicationLogic()
 
 root = Tk()
 root.title("New Income")
-root.geometry("350x240")
+root.geometry("370x240")
+root.resizable(width=False, height=False)   # Frame size manipulation
 
 def close():
     """Function to exit the gui"""
