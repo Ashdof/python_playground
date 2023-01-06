@@ -152,12 +152,12 @@ lblDetails.grid(row=4, column=0, padx=2, pady=2, sticky=tk.NW)
 
 #   ENTRIES
 
-incomes = ["Salary", "Allowance", "Gift", "Part time"]
+# incomes = ["Salary", "Allowance", "Gift", "Part time"]
 
 calDate = DateEntry(width=30, background='darkblue', foreground='white', borderwidth=1, set="Select date")
 calDate.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
 
-comboType = ttk.Combobox(root, value=incomes, width=30) #apl.getCategoryRecords()
+comboType = ttk.Combobox(root, value=apl.getCategoryRecords(), width=30) 
 comboType.set("Select income type")
 comboType.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
 
