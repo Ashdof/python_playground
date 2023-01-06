@@ -94,7 +94,7 @@ class Walletdbmanager:
             cursor = conn.cursor()
             
             query = "INSERT INTO categories (category_type, category_name, details) VALUES (?, ?, ?)"
-            data_tuple = (_category_name, _category_type, _details)
+            data_tuple = (_category_type, _category_name, _details)
             cursor.execute(query, data_tuple)
             conn.commit()
 
