@@ -16,8 +16,10 @@ import tkinter as tk
 from tkinter import ttk
 
 from applogic import ApplicationLogic
+from dbclass import Walletdbmanager
 
 apl = ApplicationLogic()
+saveCategory = Walletdbmanager("mywallet.db")
 
 root = tk.Tk()
 root.title("New Category")
@@ -106,9 +108,11 @@ def aggregateCategoryData():
         displayMessages(blankdetails)
 
     else:
-        save = apl.saveCategoryData(catType, catName, catDetails)
-        if save == 0:
+
+        saveCategory._commitcategory(catName, catType, catDetails)
+        if saveCategory:
             displayMessages(saved)
+            
         else:
             displayMessages(error)
 

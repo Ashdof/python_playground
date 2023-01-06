@@ -84,28 +84,29 @@ class Walletdbmanager:
             Commit the category record to the database
 
         Arguments:
-            _code (str): the code for a specified category
+            _category_type (str): the category type
             _category_name (str): the name of the category
+            _details (str): a description of the category
 
         """
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
             
-            query = "INSERT INTO categories (category_code, category_name) VALUES (?, ?)"
+            query = "INSERT INTO categories (category_type, category_name, details) VALUES (?, ?, ?)"
             data_tuple = (_category_name, _category_type, _details)
             cursor.execute(query, data_tuple)
-
             conn.commit()
-            cursor.close()
 
-            # print("Record saved!")
+            if (conn):
+                return 0
 
         except sqlite3.Error as e:
             print("Failed to save record: ", e)
 
         finally:
             if conn:
+                cursor.close()
                 conn.close()
     
 
