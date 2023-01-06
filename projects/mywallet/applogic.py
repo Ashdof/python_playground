@@ -28,7 +28,7 @@ class ApplicationLogic:
     def __init__(self):
        pass
 
-    def getCategoryRecords(self):
+    def getCategoryRecords(self, type_of_category):
         """Get records
 
         Description:
@@ -40,7 +40,7 @@ class ApplicationLogic:
         """
 
         data = []
-        records = db.display_list_records() 
+        records = db.display_list_records(type_of_category)
         for record in records:
             data.append(record)
         

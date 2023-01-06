@@ -17,9 +17,11 @@ from tkinter import ttk
 from tkcalendar import DateEntry
 
 from dbclass import Walletdbmanager
+from applogic import ApplicationLogic
 
 # Pass path to the database file
 db = Walletdbmanager("./mywallet.db")
+apl = ApplicationLogic()
 
 
 root = tk.Tk()
@@ -80,25 +82,6 @@ def displayMessages(msg_value):
             lblMsg["fg"] = "red"
 
     lblMsg.grid(row=6, column=1, columnspan=2, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
-
-
-def getCategoryRecords():
-        """Get records
-
-        Description:
-            This method creates a list with the elements received from calling
-            the display_list_records function from the database file
-        
-        Returns:
-            A lists of element created with the names received
-        """
-
-        data = []
-        records = db.display_list_records() 
-        for record in records:
-            data.append(record)
-        
-        return data
 
 
 def aggregateExpenseData():
@@ -173,7 +156,7 @@ lblDetails.grid(row=4, column=0, padx=2, pady=2, sticky=tk.NW)
 calDate = DateEntry(width=30, background='darkblue', foreground='white', borderwidth=1, set="Select date")
 calDate.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
 
-comboType = ttk.Combobox(root, value=getCategoryRecords(), width=30) 
+comboType = ttk.Combobox(root, value=apl.getCategoryRecords("Expense"), width=30) 
 comboType.set("Select expense type")
 comboType.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
 

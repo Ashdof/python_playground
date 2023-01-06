@@ -143,7 +143,7 @@ class Walletdbmanager:
                 conn.close()
     
 
-    def display_list_records(self):
+    def display_list_records(self, _category_type):
         """Display Category Records
         
         Description:
@@ -153,28 +153,12 @@ class Walletdbmanager:
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
-            query = "SELECT category_name FROM categories"
+            query = "SELECT category_name FROM categories WHERE category_type = '"+_category_type+"' "
             cursor.execute(query)
             records = cursor.fetchall()
 
             return records
 
-            # NOTES: 
-            # CREATE A SEPARATE CLASS THAT PURPOSEFULLY CREATES A TABLE. 
-            # THE METHODS OF THE CLASS SHOULD BE DEDICATED TO A SPECIFIC
-            # TABLE, ITS PARAMETER BEING THE NAME OF THE TABLE.
-             
-            # table = Texttable()
-            # table.header(["Number", "Category Code", "Category Name"])
-            # table.set_cols_dtype(['t', 't', 't'])
-
-            # for record in records:
-            #     table.add_row([record[0], record[1], record[2]])
-
-            # print("\n", table.draw())
-            # print("\nNumber of records found: {}".format(self.get_number_of_records("categories")))
-
-            # cursor.close()
         except sqlite3.Error as e:
             print("Failed to fetch records: ", e)
         finally:
@@ -246,3 +230,22 @@ class Walletdbmanager:
         finally:
             if conn:
                 conn.close()
+
+
+
+            # NOTES: 
+            # CREATE A SEPARATE CLASS THAT PURPOSEFULLY CREATES A TABLE. 
+            # THE METHODS OF THE CLASS SHOULD BE DEDICATED TO A SPECIFIC
+            # TABLE, ITS PARAMETER BEING THE NAME OF THE TABLE.
+             
+            # table = Texttable()
+            # table.header(["Number", "Category Code", "Category Name"])
+            # table.set_cols_dtype(['t', 't', 't'])
+
+            # for record in records:
+            #     table.add_row([record[0], record[1], record[2]])
+
+            # print("\n", table.draw())
+            # print("\nNumber of records found: {}".format(self.get_number_of_records("categories")))
+
+            # cursor.close()
