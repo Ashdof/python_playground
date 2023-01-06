@@ -2,7 +2,7 @@
     =======================     MYWALLET APPLICATION     ===================================
     FILE:                   APPLICATION LOGIC
     DATE:                   02-JAN-2023
-    LAST UPDATED:           05-JAN-2023
+    LAST UPDATED:           06-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
     DESCRIPTION:            THIS IS THE APPLICATION LOGIC THAT INTERRACTS WITH AND REGULATES THE FLOW OF 
@@ -46,7 +46,7 @@ class ApplicationLogic:
         
         return data
 
-    def saveIncomeData(self):
+    def saveIncomeData(self, _date, _type, _amount, _details):
         """Save New Income Data
         
             Description:
@@ -58,7 +58,13 @@ class ApplicationLogic:
         """
 
         print("[.] Save button clicked")
+        print()
+        print("Income Information:")
+        print("Date: {}\nIncome type: {}\nAmount: {}\nIncome details: {}".format(_date, _type, _amount, _details))
+        print()
         print("[.] This is just a placeholder to test this function")
+
+        return 0
     
 
     def saveCategoryData(self, categoryType, categoryName, categoryDetails):
@@ -74,7 +80,7 @@ class ApplicationLogic:
 
         print("[.] Save button clicked")
         print()
-        print("Category Information")
+        print("Category Information:")
         print("Category type: {}\nCategory name: {}\nCategory details: {}".format(categoryType, categoryName, categoryDetails))
         print()
         print("[.] This is just a placeholder to test the save category data function")
