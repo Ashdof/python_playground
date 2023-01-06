@@ -143,7 +143,7 @@ class Walletdbmanager:
                 conn.close()
     
 
-    def display_list_records(self, _category_type):
+    def _get_category_list(self, _category_type):
         """Display Category Records
         
         Description:
