@@ -221,6 +221,30 @@ class Walletdbmanager:
                 if conn:
                     cursor.close()
                     conn.close()
+    
+
+    def _get_transaction_records(self, _transaction_table):
+            """Display Category Records
+            
+            Description:
+                Display all information in the categories table
+
+            """
+            try:
+                conn = self.db_connection()
+                cursor = conn.cursor()
+                query = "SELECT * FROM '"+_transaction_table+"' "
+                cursor.execute(query)
+                records = cursor.fetchall()
+                
+                return records
+
+            except sqlite3.Error as e:
+                print("Failed to fetch records: ", e)
+            finally:
+                if conn:
+                    cursor.close()
+                    conn.close()
 
 
     # def display_detail_records(self):
