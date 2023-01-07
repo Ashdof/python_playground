@@ -200,6 +200,29 @@ class Walletdbmanager:
                 conn.close()
 
 
+    def _get_category_records(self, _category_type):
+            """Display Category Records
+            
+            Description:
+                Display all information in the categories table
+
+            """
+            try:
+                conn = self.db_connection()
+                cursor = conn.cursor()
+                query = "SELECT * FROM categories WHERE category_type = '"+_category_type+"' "
+                cursor.execute(query)
+                records = cursor.fetchall()
+
+                return records
+
+            except sqlite3.Error as e:
+                print("Failed to fetch records: ", e)
+            finally:
+                if conn:
+                    cursor.close()
+                    conn.close()
+
 
     # def display_detail_records(self):
     #     """Display Records
