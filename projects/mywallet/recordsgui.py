@@ -27,7 +27,10 @@ apl = ApplicationLogic()
 frmRecords = tk.Tk()
 frmRecords.title("Records Display")
 frmRecords.geometry("710x320")
-# frmRecords.resizable(width=False, height=False)   # Frame size manipulation
+frmRecords.resizable(width=False, height=False)   # Frame size manipulation
+
+frmRecords.grid_rowconfigure(1, weight=1)
+frmRecords.grid_columnconfigure(0, weight=1)
 
 #   =============================     GUI LAYOUT      ==================================
 
@@ -37,10 +40,10 @@ lblTitle = tk.Label(frmRecords, text="View list of categories and transactions")
 lblTitle.grid(row=0, column=0, columnspan=10, padx=2, pady=2, sticky=tk.W)
 
 lblSummary = tk.Label(frmRecords, text="Total records found: ")
-lblSummary.grid(row=20, column=0, columnspan=4, padx=2, pady=2, sticky=tk.W)
+lblSummary.grid(row=20, column=0, columnspan=2, padx=2, pady=2, sticky=tk.W)
 
 lblSummaryAmount = tk.Label(frmRecords, text=" 0 ") # invoke summary amount function here
-lblSummaryAmount.grid(row=20, column=6, padx=2, pady=2, sticky=tk.W)
+lblSummaryAmount.grid(row=20, column=3, padx=2, pady=2, sticky=tk.W)
 
 #   OTHER WIDGETS
 
@@ -57,5 +60,21 @@ btnGetRecords.grid(row=1, column=8, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 tblRecords = ttk.Treeview(frmRecords)
 tblRecords.grid(row=2, column=0, rowspan=18, columnspan=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
+
+tblRecords["columns"] = ["id", "category", "amount", "details"]
+
+# format our column
+tblRecords.column("#0", width=0,  stretch=tk.NO)
+tblRecords.column("id", anchor=tk.W, width=10)
+tblRecords.column("category", anchor=tk.W, width=30)
+tblRecords.column("amount", anchor=tk.W, width=30)
+tblRecords.column("details", anchor=tk.W, width=120)
+
+#Create Headings 
+tblRecords.heading("#0", text="", anchor=tk.W)
+tblRecords.heading("id", text="Id", anchor=tk.W)
+tblRecords.heading("category", text="Category", anchor=tk.W)
+tblRecords.heading("amount", text="Amount", anchor=tk.W)
+tblRecords.heading("details", text="Details", anchor=tk.W)
 
 frmRecords.mainloop()
