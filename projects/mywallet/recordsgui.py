@@ -32,6 +32,22 @@ frmRecords.resizable(width=False, height=False)   # Frame size manipulation
 frmRecords.grid_rowconfigure(1, weight=1)
 frmRecords.grid_columnconfigure(0, weight=1)
 
+
+def displayRecords():
+    cmbSelect = cmbRecords.get()
+    if cmbSelect == "Income Categories":
+        type = "Income"
+    elif cmbSelect == "Expense Categories":
+        type = "Expense"
+
+    income_cats = apl.getCategoryRecords(type)
+    
+    i = 0
+    while i < len(income_cats):
+        tblRecords.insert(parent='', index='end', iid=None, text='', values=(i,income_cats[i]))
+        i += 1
+
+
 #   =============================     GUI LAYOUT      ==================================
 
 #   LABELS
@@ -53,7 +69,7 @@ cmbRecords = ttk.Combobox(frmRecords, value=cat_list, width=70)
 cmbRecords.set("Select record to display")
 cmbRecords.grid(row=1, column=0, columnspan=7, padx=2, pady=2, sticky=tk.W)
 
-btnGetRecords = tk.Button(frmRecords, text=" Get Records ", command="")
+btnGetRecords = tk.Button(frmRecords, text=" Get Records ", command=displayRecords)
 btnGetRecords.grid(row=1, column=8, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 # , yscrollcommand=game_scroll.set, xscrollcommand =game_scroll.set
@@ -76,5 +92,9 @@ tblRecords.heading("id", text="Id", anchor=tk.W)
 tblRecords.heading("category", text="Category", anchor=tk.W)
 tblRecords.heading("amount", text="Amount", anchor=tk.W)
 tblRecords.heading("details", text="Details", anchor=tk.W)
+
+
+
+# tblRecords.insert(parent='',index='end',iid=0,text='', values=('1','Ninja','101','Oklahoma', 'Moore'))
 
 frmRecords.mainloop()
