@@ -40,7 +40,7 @@ class ApplicationLogic:
         """
 
         data = []
-        records = db._get_category_list(type_of_category)
+        records = db._get_category_names(type_of_category)
         for record in records:
             data.append(record)
         
