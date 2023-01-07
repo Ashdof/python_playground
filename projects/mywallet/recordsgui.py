@@ -36,16 +36,43 @@ frmRecords.grid_columnconfigure(0, weight=1)
 def displayRecords():
     cmbSelect = cmbRecords.get()
     if cmbSelect == "Income Categories":
-        type = "Income"
+        type_of_category = "Income"
     elif cmbSelect == "Expense Categories":
-        type = "Expense"
+        type_of_category = "Expense"
 
-    income_cats = apl.getCategoryRecords(type)
+    displayCategories(type=type_of_category)
+
+
+def displayCategories(type):
+    tblCategoryRecords = ttk.Treeview(frmRecords)
+    tblCategoryRecords.grid(row=2, column=0, rowspan=18, columnspan=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
     
+    tblCategoryRecords["columns"] = ["id", "category", "cat_name", "details"]
+
+    # format our column
+    tblCategoryRecords.column("#0", width=0,  stretch=tk.NO)
+    tblCategoryRecords.column("id", anchor=tk.W, width=10)
+    tblCategoryRecords.column("category", anchor=tk.W, width=30)
+    tblCategoryRecords.column("cat_name", anchor=tk.W, width=30)
+    tblCategoryRecords.column("details", anchor=tk.W, width=120)
+
+    #Create Headings 
+    tblCategoryRecords.heading("#0", text="", anchor=tk.W)
+    tblCategoryRecords.heading("id", text="Id", anchor=tk.W)
+    tblCategoryRecords.heading("category", text="Category Type", anchor=tk.W)
+    tblCategoryRecords.heading("cat_name", text="Category Name", anchor=tk.W)
+    tblCategoryRecords.heading("details", text="Income Details", anchor=tk.W)
+
+    _cats = apl.getCategoryRecords(type)
+
     i = 0
-    while i < len(income_cats):
-        tblRecords.insert(parent='', index='end', iid=None, text='', values=(i,income_cats[i]))
+    while i < len(_cats):
+        tblCategoryRecords.insert(parent='', index='end', iid=None, text='', values=(i, _cats[i]))
         i += 1
+
+
+def displayTransactions(type):
+    pass
 
 
 #   =============================     GUI LAYOUT      ==================================
@@ -74,27 +101,7 @@ btnGetRecords.grid(row=1, column=8, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 # , yscrollcommand=game_scroll.set, xscrollcommand =game_scroll.set
 
-tblRecords = ttk.Treeview(frmRecords)
-tblRecords.grid(row=2, column=0, rowspan=18, columnspan=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
-
-tblRecords["columns"] = ["id", "category", "amount", "details"]
-
-# format our column
-tblRecords.column("#0", width=0,  stretch=tk.NO)
-tblRecords.column("id", anchor=tk.W, width=10)
-tblRecords.column("category", anchor=tk.W, width=30)
-tblRecords.column("amount", anchor=tk.W, width=30)
-tblRecords.column("details", anchor=tk.W, width=120)
-
-#Create Headings 
-tblRecords.heading("#0", text="", anchor=tk.W)
-tblRecords.heading("id", text="Id", anchor=tk.W)
-tblRecords.heading("category", text="Category", anchor=tk.W)
-tblRecords.heading("amount", text="Amount", anchor=tk.W)
-tblRecords.heading("details", text="Details", anchor=tk.W)
-
-
-
-# tblRecords.insert(parent='',index='end',iid=0,text='', values=('1','Ninja','101','Oklahoma', 'Moore'))
+tblTemp = ttk.Treeview(frmRecords)
+tblTemp.grid(row=2, column=0, rowspan=18, columnspan=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 frmRecords.mainloop()
