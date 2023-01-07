@@ -34,6 +34,14 @@ frmRecords.grid_columnconfigure(0, weight=1)
 
 
 def displayRecords():
+    """Display Records
+
+    Description:
+        This method invokes other methods to display various types of records
+        on the gui. The type of record to display is determined by the selected
+        item from the combobox widget
+        
+    """
     cmbSelect = cmbRecords.get()
     if cmbSelect == "Income Categories":
         type_of_category = "Income"
@@ -44,6 +52,17 @@ def displayRecords():
 
 
 def displayCategories(type):
+    """Display Records of Categories
+
+    Description:
+        This method displays records of categories from the database according to
+        a specified type. It creates a treeview widget, populates it with the data
+        and when invoked, adds the table view to the grid frame on the gui.
+    
+    Args:
+        type (str): the type of categoyr records to display, example: Income, Expense
+
+    """
     tblCategoryRecords = ttk.Treeview(frmRecords)
     tblCategoryRecords.grid(row=2, column=0, rowspan=18, columnspan=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
     
