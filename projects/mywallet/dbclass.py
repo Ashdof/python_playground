@@ -11,7 +11,6 @@
 #!/usr/bin/python3
 
 import sqlite3
-# from texttable import Texttable
 
 class Walletdbmanager:
 
@@ -213,7 +212,7 @@ class Walletdbmanager:
                 query = "SELECT * FROM categories WHERE category_type = '"+_category_type+"' "
                 cursor.execute(query)
                 records = cursor.fetchall()
-
+                
                 return records
 
             except sqlite3.Error as e:

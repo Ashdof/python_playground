@@ -14,13 +14,13 @@
 
 import tkinter as tk
 from tkinter import ttk
-# from tkcalendar import DateEntry
 
 from dbclass import Walletdbmanager
 from applogic import ApplicationLogic
 
 # Pass path to the database file
 db = Walletdbmanager("./mywallet.db")
+
 apl = ApplicationLogic()
 
 
@@ -82,12 +82,10 @@ def displayCategories(type):
     tblCategoryRecords.heading("cat_name", text="Category Name", anchor=tk.W)
     tblCategoryRecords.heading("details", text="Category Details", anchor=tk.W)
 
-    _cats = apl.getCategoryNames(type)
+    _cats = db._get_category_records(type)
 
-    i = 0
-    while i < len(_cats):
-        tblCategoryRecords.insert(parent='', index='end', iid=None, text='', values=(i, _cats[i]))
-        i += 1
+    for row in _cats:
+        tblCategoryRecords.insert(parent='', index='end', iid=None, text='', values=row)
 
 
 def displayTransactions(type):
