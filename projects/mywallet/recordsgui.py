@@ -43,20 +43,19 @@ def displayRecords():
         
     """
     cmbSelect = cmbRecords.get()
-    if cmbSelect == "Income Categories":
 
-        displayCategories(type="Income")
+    match (cmbSelect):
+        case "Income Categories":
+            displayCategories(type="Income")
 
-    elif cmbSelect == "Expense Categories":
-        displayCategories(type="Expense")
+        case "Expense Categories":
+            displayCategories(type="Expense")
 
-    elif cmbSelect == "Income Transactions":
+        case "Income Transactions":
+            displayTransactions("income_records")
 
-        displayTransactions("income_records")
-
-    elif cmbSelect == "Expense Transactions":
-
-        displayTransactions("expense_records")
+        case "Expense Transactions":
+            displayTransactions("expense_records")
 
 
 def displayCategories(type):
