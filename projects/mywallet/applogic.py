@@ -28,7 +28,7 @@ class ApplicationLogic:
     def __init__(self):
        pass
 
-    def getCategoryRecords(self, type_of_category):
+    def getCategoryNames(self, type_of_category):
         """Get records
 
         Description:

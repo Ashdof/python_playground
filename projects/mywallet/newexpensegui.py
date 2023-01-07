@@ -156,7 +156,7 @@ lblDetails.grid(row=4, column=0, padx=2, pady=2, sticky=tk.NW)
 calDate = DateEntry(width=30, background='darkblue', foreground='white', borderwidth=1, set="Select date")
 calDate.grid(row=1, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
 
-comboType = ttk.Combobox(root, value=apl.getCategoryRecords("Expense"), width=30) 
+comboType = ttk.Combobox(root, value=apl.getCategoryNames("Expense"), width=30) 
 comboType.set("Select expense type")
 comboType.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky=tk.W)
 

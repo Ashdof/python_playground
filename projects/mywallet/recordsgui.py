@@ -63,7 +63,7 @@ def displayCategories(type):
     tblCategoryRecords.heading("cat_name", text="Category Name", anchor=tk.W)
     tblCategoryRecords.heading("details", text="Category Details", anchor=tk.W)
 
-    _cats = apl.getCategoryRecords(type)
+    _cats = apl.getCategoryNames(type)
 
     i = 0
     while i < len(_cats):
