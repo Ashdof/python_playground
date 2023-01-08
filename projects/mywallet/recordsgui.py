@@ -26,7 +26,7 @@ apl = ApplicationLogic()
 
 frmRecords = tk.Tk()
 frmRecords.title("Records Display")
-frmRecords.geometry("710x320")
+frmRecords.geometry("710x420")
 frmRecords.resizable(width=False, height=False)   # Frame size manipulation
 
 frmRecords.grid_rowconfigure(1, weight=1)
@@ -71,7 +71,7 @@ def displayCategories(type):
 
     """
     tblCategoryRecords = ttk.Treeview(frmRecords)
-    tblCategoryRecords.grid(row=2, column=0, rowspan=18, columnspan=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
+    tblCategoryRecords.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
     
     tblCategoryRecords["columns"] = ["id", "category", "cat_name", "details"]
 
@@ -108,7 +108,7 @@ def displayTransactions(transaction_type):
 
     """
     tblCategoryRecords = ttk.Treeview(frmRecords)
-    tblCategoryRecords.grid(row=2, column=0, rowspan=18, columnspan=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
+    tblCategoryRecords.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
     
     tblCategoryRecords["columns"] = ["id", "date", "type", "amount", "details"]
 
@@ -136,29 +136,27 @@ def displayTransactions(transaction_type):
 
 #   =============================     GUI LAYOUT      ==================================
 
-#   LABELS
-
+#   =================   LABELS  
 lblTitle = tk.Label(frmRecords, text="View list of categories and transactions")
-lblTitle.grid(row=0, column=0, columnspan=10, padx=2, pady=2, sticky=tk.W)
+lblTitle.grid(row=0, column=0, columnspan=10, padx=5, pady=2, sticky=tk.W)
 
-lblSummary = tk.Label(frmRecords, text="Total records found: ")
-lblSummary.grid(row=20, column=0, columnspan=2, padx=2, pady=2, sticky=tk.W)
+lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(2, "Incomes", 150000.854), fg="green")
+lbSummary.config(font=("Courier", 11))
+lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
 
-lblSummaryAmount = tk.Label(frmRecords, text=" 0 ") # invoke summary amount function here
-lblSummaryAmount.grid(row=20, column=3, padx=2, pady=2, sticky=tk.W)
-
-#   OTHER WIDGETS
-
+#   ================    COMBOBOX 
 cat_list = ["Income Categories", "Expense Categories", "Income Transactions", "Expense Transactions"]
 
 cmbRecords = ttk.Combobox(frmRecords, value=cat_list, width=70)
 cmbRecords.set("Select record to display")
-cmbRecords.grid(row=1, column=0, columnspan=7, padx=2, pady=2, sticky=tk.W)
+cmbRecords.grid(row=1, column=0, columnspan=9, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
+#   ================    BUTTON
 btnGetRecords = tk.Button(frmRecords, text=" Get Records ", command=displayRecords)
-btnGetRecords.grid(row=1, column=8, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
+btnGetRecords.grid(row=1, column=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
-tblTemp = ttk.Treeview(frmRecords)
-tblTemp.grid(row=2, column=0, rowspan=18, columnspan=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
+#   ===============     TREEVIEW
+tblTemp = ttk.Treeview(frmRecords, height=15)
+tblTemp.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 frmRecords.mainloop()
