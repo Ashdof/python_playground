@@ -61,7 +61,7 @@ class DisplayRecords(tk.Frame):
         btnGetRecords.grid(row=1, column=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
         #   ===============     TREEVIEW
-        tblTemp = ttk.Treeview(self.master, height=20)
+        tblTemp = ttk.Treeview(self.master, height=15)
         tblTemp.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 
