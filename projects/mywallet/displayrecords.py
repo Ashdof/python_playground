@@ -22,3 +22,20 @@ from applogic import ApplicationLogic
 db = Walletdbmanager("./mywallet.db")
 
 apl = ApplicationLogic() 
+
+
+def main():
+    frmRecords = tk.Tk()
+    frmRecords.geometry("800x400")
+    frmRecords.title("Records Display")
+    frmRecords.resizable(width=False, height=False)   # Frame size manipulation
+
+    frmRecords.grid_rowconfigure(1, weight=1)
+    frmRecords.grid_columnconfigure(0, weight=1)
+
+    frmRecords.mainloop()
+
+
+if __name__ == '__main__':
+
+    main()
