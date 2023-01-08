@@ -56,15 +56,20 @@ class DisplayRecords(tk.Frame):
         cmbRecords.set("Select record to display")
         cmbRecords.grid(row=1, column=0, columnspan=9, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
+        #   ================    BUTTON
         btnGetRecords = tk.Button(self.master, text=" Get Records ", command="")
         btnGetRecords.grid(row=1, column=10, padx=2, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
+
+        #   ===============     TREEVIEW
+        tblTemp = ttk.Treeview(self.master, height=20)
+        tblTemp.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
 
 
 def main():
     frmRecords = tk.Tk()
-    frmRecords.geometry("800x400")
+    frmRecords.geometry("710x400")
     frmRecords.title("Records Display")
-    frmRecords.resizable(width=False, height=False)   # Frame size manipulation
+    # frmRecords.resizable(width=False, height=False)   # Frame size manipulation
 
     records = DisplayRecords()
 
