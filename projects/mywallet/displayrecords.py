@@ -11,8 +11,9 @@
 
 #!/usr/bin/python3
 
-
-from tkinter import Tk, Frame, Menu, ttk
+from PIL import Image, ImageTk
+from tkinter import Tk, Frame, Menu, ttk, Button
+from tkinter import LEFT, TOP, X, FLAT, RAISED
 
 from dbclass import Walletdbmanager
 from applogic import ApplicationLogic
@@ -26,19 +27,33 @@ class DisplayRecords(Frame):
 
     def __init__(self):
         super().__init__()
-        self._menuBar()
+        self._toolBar()
     
-
-    def _menuBar(self):
+    
+    def _toolBar(self):
         menubar = Menu(self.master)
+
+        toolBar = Frame(self.master, bd=1, relief=RAISED)
+
+        self.img = Image.open("img/close.png")
+        exit_img = ImageTk.PhotoImage(self.img)
+
+        btnExit = Button(toolBar, image=exit_img, relief=FLAT, command=self._closeWindow)
+        btnExit.image = exit_img
+        btnExit.pack(side = LEFT, padx=2, pady=2)
+
+        toolBar.pack(side=TOP, fill=X)
         self.master.config(menu=menubar)
-        fileMenu = Menu(menubar)
-        fileMenu.add_command(label=" Exit ", command=self._closeWindow)
-        menubar.add_cascade(label = " File ", menu=fileMenu)
-    
+        self.pack()
+
+
 
     def _closeWindow(self):
         self.quit()
+    
+
+    def _guiWidgets(self):
+        pass
 
 
 def main():
