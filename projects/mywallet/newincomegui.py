@@ -2,7 +2,7 @@
     =======================     MYWALLET APPLICATION     ===================================
     FILE:                   NEW INCOME GUI
     DATE:                   02-JAN-2023
-    LAST UPDATED:           06-JAN-2023
+    LAST UPDATED:           08-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
     DESCRIPTION:            THIS IS THE NEW INCOME REGISTRY GUI.
@@ -120,7 +120,7 @@ def aggregateIncomeData():
 
     else:
 
-        save = db._commitincome(_incomeDate, _incomeType, _incomeAmount, _incomeDetails)
+        save = db._commitransactions(_incomeDate, _incomeType, _incomeAmount, _incomeDetails)
         if save == 0:
             displayMessages(saved)
         else:
