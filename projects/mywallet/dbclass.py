@@ -175,6 +175,39 @@ class Walletdbmanager:
                 conn.close()
     
 
+    def _commitransactions(self, _transaction_date, _transaction_type, _transaction_amount, _transaction_details):
+        """Save Income Record
+
+        Description:
+            This method commits records of new transactions to the database
+
+        Args:
+            _transaction_date (date): the current date for the transaction
+            _transaction_type (str): the type/category of the transaction
+            _transaction_amount (float/int): the amount of involved in the transaction
+            _transaction_details (str): a brief description of the transaction
+        """
+
+        try:
+            conn = self.db_connection()
+            cursor = conn.cursor()
+            
+            query = "INSERT INTO wallet_transactions (transaction_date, transaction_type, transaction_amount, transaction_details) VALUES (?, ?, ?, ?)"
+            data_tuple = (_transaction_date, _transaction_type, _transaction_amount, _transaction_details)
+            cursor.execute(query, data_tuple)
+            conn.commit()
+
+            if (conn):
+                return 0
+        except sqlite3.Error as e:
+            print("Failed to save record: ", e)
+
+        finally:
+            if conn:
+                cursor.close()
+                conn.close()
+    
+
     def _get_category_names(self, _category_type):
         """Display Category Records
         
