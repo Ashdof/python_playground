@@ -2,7 +2,7 @@
     =======================     MYWALLET APPLICATION     ===================================
     FILE:                   NEW EXPENSE GUI
     DATE:                   06-JAN-2023
-    LAST UPDATED:           06-JAN-2023
+    LAST UPDATED:           08-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
     DESCRIPTION:            THIS IS THE NEW EXPENSE REGISTRY GUI.
@@ -120,7 +120,7 @@ def aggregateExpenseData():
 
     else:
 
-        save = db._commitexpense(_expenseDate, _expenseType, _expenseAmount, _expenseDetails)
+        save = db._commitransactions(_expenseDate, _expenseType, _expenseAmount, _expenseDetails)
         if save == 0:
             displayMessages(saved)
         else:
