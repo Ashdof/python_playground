@@ -23,17 +23,30 @@ db = Walletdbmanager("./mywallet.db")
 apl = ApplicationLogic() 
 
 class DisplayRecords(tk.Frame):
+    """Class to model a record displaying graphical user interface"""
 
     def __init__(self):
+        """Initialise the class upon invocation"""
         super().__init__()
+        self._guiWidgets()
 
 
     def _closeWindow(self):
+        """Quit the current active window"""
         self.quit()
     
 
     def _guiWidgets(self):
-        pass
+        """Define Widgets
+        
+        Description:
+            This method defines the widgets on the form
+
+        """
+
+        #   =================   LABELS  
+        lblTitle = tk.Label(self.master, text="View list of categories and transactions")
+        lblTitle.grid(row=0, column=0, columnspan=10, padx=2, pady=2, sticky=tk.W)
 
 
 def main():
