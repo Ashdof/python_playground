@@ -281,38 +281,6 @@ class Walletdbmanager:
                 if conn:
                     cursor.close()
                     conn.close()
-
-
-    # def display_detail_records(self):
-    #     """Display Records
-        
-    #     Description:
-    #         Display all information in the specified table
-
-    #     """
-    #     try:
-    #         conn = self.db_connection()
-    #         cursor = conn.cursor()
-    #         query = "SELECT * FROM gamerecords"
-    #         cursor.execute(query)
-    #         records = cursor.fetchall()
-
-    #         table = Texttable()
-    #         table.header(["Game Number", "Date", "Game Stage", "Total Score"])
-    #         table.set_cols_dtype(['t', 't', 't', 't'])
-
-    #         for record in records:
-    #             table.add_row([record[0], record[1], record[2], record[3]])
-
-    #         print("\n", table.draw())
-    #         print("\nNumber of records found: ", self.get_number_of_records())
-
-    #         cursor.close()
-    #     except sqlite3.Error as e:
-    #         print("Failed to fetch records: ", e)
-    #     finally:
-    #         if conn:
-    #             conn.close()
     
 
     def get_number_of_records(self, table_name):
@@ -345,22 +313,5 @@ class Walletdbmanager:
         finally:
             if conn:
                 conn.close()
-
-
-
-            # NOTES: 
-            # CREATE A SEPARATE CLASS THAT PURPOSEFULLY CREATES A TABLE. 
-            # THE METHODS OF THE CLASS SHOULD BE DEDICATED TO A SPECIFIC
-            # TABLE, ITS PARAMETER BEING THE NAME OF THE TABLE.
-             
-            # table = Texttable()
-            # table.header(["Number", "Category Code", "Category Name"])
-            # table.set_cols_dtype(['t', 't', 't'])
-
-            # for record in records:
-            #     table.add_row([record[0], record[1], record[2]])
-
-            # print("\n", table.draw())
-            # print("\nNumber of records found: {}".format(self.get_number_of_records("categories")))
-
-            # cursor.close()
+    
+    
