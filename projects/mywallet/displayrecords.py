@@ -13,6 +13,7 @@
 
 from PIL import Image, ImageTk
 import tkinter as tk
+from tkinter import ttk
 
 from dbclass import Walletdbmanager
 from applogic import ApplicationLogic
@@ -47,6 +48,13 @@ class DisplayRecords(tk.Frame):
         #   =================   LABELS  
         lblTitle = tk.Label(self.master, text="View list of categories and transactions")
         lblTitle.grid(row=0, column=0, columnspan=10, padx=2, pady=2, sticky=tk.W)
+
+        #   ================    COMBOBOX 
+        cat_list = ["Income Categories", "Expense Categories", "Income Transactions", "Expense Transactions"]
+
+        cmbRecords = ttk.Combobox(self.master, value=cat_list, width=70)
+        cmbRecords.set("Select record to display")
+        cmbRecords.grid(row=1, column=0, columnspan=9, padx=2, pady=2, sticky=tk.W)
 
 
 def main():
