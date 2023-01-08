@@ -49,6 +49,10 @@ class DisplayRecords(tk.Frame):
         lblTitle = tk.Label(self.master, text="View list of categories and transactions")
         lblTitle.grid(row=0, column=0, columnspan=10, padx=5, pady=2, sticky=tk.W)
 
+        lbSummary = tk.Label(self.master, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(2, "Incomes", 150000.854), fg="green")
+        lbSummary.config(font=("Courier", 11))
+        lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
+
         #   ================    COMBOBOX 
         cat_list = ["Income Categories", "Expense Categories", "Income Transactions", "Expense Transactions"]
 
@@ -67,7 +71,7 @@ class DisplayRecords(tk.Frame):
 
 def main():
     frmRecords = tk.Tk()
-    frmRecords.geometry("710x400")
+    frmRecords.geometry("710x420")
     frmRecords.title("Records Display")
     # frmRecords.resizable(width=False, height=False)   # Frame size manipulation
 
