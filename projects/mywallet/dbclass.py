@@ -300,19 +300,19 @@ class Walletdbmanager:
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
-            query = "SELECT * FROM wallet_tranaction WHERE transaction_type = '"+_tranaction_type+"' "
+            query = "SELECT * FROM wallet_transactions WHERE transaction_type = '"+_tranaction_type+"' "
             cursor.execute(query)
             records = cursor.fetchall()
 
-            total = len(records)
+            _sum = len(records)
 
-            cursor.close()
-            return total
+            return _sum
             
         except sqlite3.Error as e:
             print("Failed to fetch records: ", e)
         finally:
             if conn:
+                cursor.close()
                 conn.close()
     
 
@@ -333,13 +333,13 @@ class Walletdbmanager:
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
-            query = "SELECT transaction_amount FROM wallet_transactions WHERE transaction_type = '"+_tranaction_type+"' "
+            query = "SELECT SUM(transaction_amount) FROM wallet_transactions WHERE transaction_type = '"+_tranaction_type+"' "
             cursor.execute(query)
             records = cursor.fetchall()
 
-            total = sum(records)
+            # total = sum(records)
 
-            return total
+            return records
             
         except sqlite3.Error as e:
             print("Failed to fetch records: ", e)
@@ -366,19 +366,19 @@ class Walletdbmanager:
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
-            query = "SELECT * FROM wallet_tranaction WHERE transaction_category = '"+_category_type+"' "
+            query = "SELECT * FROM wallet_transactions WHERE transaction_category = '"+_category_type+"' "
             cursor.execute(query)
             records = cursor.fetchall()
 
-            total = len(records)
+            _sum = len(records)
 
-            cursor.close()
-            return total
+            return _sum
             
         except sqlite3.Error as e:
             print("Failed to fetch records: ", e)
         finally:
             if conn:
+                cursor.close()
                 conn.close()
     
 
@@ -399,13 +399,13 @@ class Walletdbmanager:
         try:
             conn = self.db_connection()
             cursor = conn.cursor()
-            query = "SELECT transaction_amount FROM wallet_transactions WHERE transaction_category = '"+_category_type+"' "
+            query = "SELECT SUM(transaction_amount) FROM wallet_transactions WHERE transaction_category = '"+_category_type+"' "
             cursor.execute(query)
             records = cursor.fetchall()
 
-            total = sum(records)
+            # total = sum(records)
 
-            return total
+            return records
             
         except sqlite3.Error as e:
             print("Failed to fetch records: ", e)

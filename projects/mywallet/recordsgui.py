@@ -70,6 +70,13 @@ def displayCategories(type):
         type (str): the type of categoyr records to display, example: Income, Expense
 
     """
+    _count = db._get_number_of_records_of_categories(type)
+    _sum = db._get_sum_of_amounts_of_categories(type)
+
+    lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(_count, type, _sum), fg="green")
+    lbSummary.config(font=("Courier", 11))
+    lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
+
     tblCategoryRecords = ttk.Treeview(frmRecords)
     tblCategoryRecords.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
     
@@ -107,6 +114,13 @@ def displayTransactions(transaction_type):
         type (str): the type of categoyr records to display, example: Income, Expense
 
     """
+    _count = db._get_number_of_records_of_types(transaction_type)
+    _sum = db._get_sum_of_amounts_of_types(transaction_type)
+
+    lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(_count, transaction_type, _sum), fg="green")
+    lbSummary.config(font=("Courier", 11))
+    lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
+
     tblCategoryRecords = ttk.Treeview(frmRecords)
     tblCategoryRecords.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
     
@@ -140,7 +154,7 @@ def displayTransactions(transaction_type):
 lblTitle = tk.Label(frmRecords, text="View list of categories and transactions")
 lblTitle.grid(row=0, column=0, columnspan=10, padx=5, pady=2, sticky=tk.W)
 
-lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(2, "Incomes", 150000.854), fg="green")
+lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(0, " ", 0.0), fg="green")
 lbSummary.config(font=("Courier", 11))
 lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
 
