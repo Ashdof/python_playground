@@ -101,6 +101,7 @@ def aggregateExpenseData():
     """
     saved, error, wrong_type, blank_amount, type_error, blank_details, = 1, 2, 3, 4, 5, 6
 
+    _category = "Expenses"
     _expenseDate = calDate.get()
     _expenseType = comboType.get()
     _expenseAmount = txtAmount.get()
@@ -119,8 +120,8 @@ def aggregateExpenseData():
         displayMessages(blank_details)
 
     else:
-
-        save = db._commitransactions(_expenseDate, _expenseType, _expenseAmount, _expenseDetails)
+        
+        save = db._commitransactions(_expenseDate, _expenseType, _category, _expenseAmount, _expenseDetails)
         if save == 0:
             displayMessages(saved)
         else:

@@ -175,7 +175,7 @@ class Walletdbmanager:
                 conn.close()
     
 
-    def _commitransactions(self, _transaction_date, _transaction_type, _transaction_amount, _transaction_details):
+    def _commitransactions(self, _transaction_date, _transaction_type, _transaction_category, _transaction_amount, _transaction_details):
         """Save Income Record
 
         Description:
@@ -183,7 +183,10 @@ class Walletdbmanager:
 
         Args:
             _transaction_date (date): the current date for the transaction
-            _transaction_type (str): the type/category of the transaction
+            _transaction_type (str): the type of the transaction, either Salary,
+            Allowance, Entertainment, or Grocery etc.
+            _transaction_category (tr): the category of the transaction, either Incomes
+            Expenses
             _transaction_amount (float/int): the amount of involved in the transaction
             _transaction_details (str): a brief description of the transaction
         """
@@ -192,8 +195,8 @@ class Walletdbmanager:
             conn = self.db_connection()
             cursor = conn.cursor()
             
-            query = "INSERT INTO wallet_transactions (transaction_date, transaction_type, transaction_amount, transaction_details) VALUES (?, ?, ?, ?)"
-            data_tuple = (_transaction_date, _transaction_type, _transaction_amount, _transaction_details)
+            query = "INSERT INTO wallet_transactions (transaction_date, transaction_type, transaction_category, transaction_amount, transaction_details) VALUES (?, ?, ?, ?, ?)"
+            data_tuple = (_transaction_date, _transaction_type, _transaction_category, _transaction_amount, _transaction_details)
             cursor.execute(query, data_tuple)
             conn.commit()
 

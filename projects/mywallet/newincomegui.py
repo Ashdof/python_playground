@@ -101,6 +101,7 @@ def aggregateIncomeData():
     """
     saved, error, wrong_type, blank_amount, type_error, blank_details, = 1, 2, 3, 4, 5, 6
 
+    _category = "Incomes"
     _incomeDate = calDate.get()
     _incomeType = comboType.get()
     _incomeAmount = txtAmount.get()
@@ -119,8 +120,8 @@ def aggregateIncomeData():
         displayMessages(blank_details)
 
     else:
-
-        save = db._commitransactions(_incomeDate, _incomeType, _incomeAmount, _incomeDetails)
+        
+        save = db._commitransactions(_incomeDate, _incomeType, _category, _incomeAmount, _incomeDetails)
         if save == 0:
             displayMessages(saved)
         else:
