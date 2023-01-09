@@ -2,7 +2,7 @@
     =======================     MYWALLET APPLICATION     ===================================
     FILE:                   RECORDS GUI
     DATE:                   07-JAN-2023
-    LAST UPDATED:           07-JAN-2023
+    LAST UPDATED:           09-JAN-2023
     DEVELOPER:              EMMANUEL ENCHILL
 
     DESCRIPTION:            THIS IS THE RECORDS GUI.
@@ -52,10 +52,10 @@ def displayRecords():
             displayCategories(type="Expense")
 
         case "Income Transactions":
-            displayTransactions("income_records")
+            displayTransactions("Incomes")
 
         case "Expense Transactions":
-            displayTransactions("expense_records")
+            displayTransactions("Expenses")
 
 
 def displayCategories(type):

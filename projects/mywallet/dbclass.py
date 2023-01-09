@@ -1,7 +1,7 @@
 """ =======================     MYWALLET APPLICATION     ===================================
     FILE:           MYWALLET DATABASE CLASS
     DATE CREATED:   29-Dec-2022
-    LAST UPDATED:   08-JAN-2023
+    LAST UPDATED:   09-JAN-2023
     DEVELOPER:      EMMANUEL ENCHILL
 
     DESCRIPTION:    THIS CLASS FILE HAS METHODS TO CONNECT TO THE DATABASE AND PERFORM CRUD ACTIONS. IT ACTS
@@ -259,17 +259,21 @@ class Walletdbmanager:
                     conn.close()
     
 
-    def _get_transaction_records(self, _transaction_table):
+    def _get_transaction_records(self, _transaction_type):
             """Display Category Records
             
             Description:
-                Display all information in the categories table
+                This method fetches records from the transactions table based on the
+                transaction type indicated by the parameter
+            
+            Args:
+                _transaction_type (str): the type of transaction, example Incomes, Expenses
 
             """
             try:
                 conn = self.db_connection()
                 cursor = conn.cursor()
-                query = "SELECT * FROM '"+_transaction_table+"' "
+                query = "SELECT * FROM wallet_transactions WHERE transaction_type = '"+_transaction_type+"' "
                 cursor.execute(query)
                 records = cursor.fetchall()
                 
