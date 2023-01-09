@@ -259,161 +259,161 @@ class Walletdbmanager:
                     conn.close()
     
 
-    def _get_transaction_records(self, _transaction_type):
-            """Display Category Records
+    # def _get_transaction_records(self, _transaction_type):
+    #         """Display Category Records
             
-            Description:
-                This method fetches records from the transactions table based on the
-                transaction type indicated by the parameter
+    #         Description:
+    #             This method fetches records from the transactions table based on the
+    #             transaction type indicated by the parameter
             
-            Args:
-                _transaction_type (str): the type of transaction, example Incomes, Expenses
+    #         Args:
+    #             _transaction_type (str): the type of transaction, example Incomes, Expenses
 
-            """
-            try:
-                conn = self.db_connection()
-                cursor = conn.cursor()
-                query = "SELECT * FROM wallet_transactions WHERE transaction_type = '"+_transaction_type+"' "
-                cursor.execute(query)
-                records = cursor.fetchall()
+    #         """
+    #         try:
+    #             conn = self.db_connection()
+    #             cursor = conn.cursor()
+    #             query = "SELECT * FROM wallet_transactions WHERE transaction_type = '"+_transaction_type+"' "
+    #             cursor.execute(query)
+    #             records = cursor.fetchall()
                 
-                return records
+    #             return records
 
-            except sqlite3.Error as e:
-                print("Failed to fetch records: ", e)
-            finally:
-                if conn:
-                    cursor.close()
-                    conn.close()
+    #         except sqlite3.Error as e:
+    #             print("Failed to fetch records: ", e)
+    #         finally:
+    #             if conn:
+    #                 cursor.close()
+    #                 conn.close()
     
 
-    def _get_number_of_records_of_types(self, _tranaction_type):
-        """Number of records
+    # def _get_number_of_records_of_types(self, _tranaction_type):
+    #     """Number of records
         
-        Description:
-            This method computes for the number of records in a table
-            specified by the parameter
+    #     Description:
+    #         This method computes for the number of records in a table
+    #         specified by the parameter
 
-        Args:
-            _tranaction_type (str): the type of transaction, example Incomes, Expenses
+    #     Args:
+    #         _tranaction_type (str): the type of transaction, example Incomes, Expenses
         
-        Returns:
-            The total number of records of the specified type
+    #     Returns:
+    #         The total number of records of the specified type
             
-        """
-        try:
-            conn = self.db_connection()
-            cursor = conn.cursor()
-            query = "SELECT * FROM wallet_transactions WHERE transaction_type = '"+_tranaction_type+"' "
-            cursor.execute(query)
-            records = cursor.fetchall()
+    #     """
+    #     try:
+    #         conn = self.db_connection()
+    #         cursor = conn.cursor()
+    #         query = "SELECT * FROM wallet_transactions WHERE transaction_type = '"+_tranaction_type+"' "
+    #         cursor.execute(query)
+    #         records = cursor.fetchall()
 
-            _sum = len(records)
+    #         _sum = len(records)
 
-            return _sum
+    #         return _sum
             
-        except sqlite3.Error as e:
-            print("Failed to fetch records: ", e)
-        finally:
-            if conn:
-                cursor.close()
-                conn.close()
+    #     except sqlite3.Error as e:
+    #         print("Failed to fetch records: ", e)
+    #     finally:
+    #         if conn:
+    #             cursor.close()
+    #             conn.close()
     
 
-    def _get_sum_of_amounts_of_types(self, _tranaction_type):
-        """Number of records
+    # def _get_sum_of_amounts_of_types(self, _tranaction_type):
+    #     """Number of records
         
-        Description:
-            This method computes for the sum of amounts from the transactions table
-            where the type of transaction is specified by the parameter
+    #     Description:
+    #         This method computes for the sum of amounts from the transactions table
+    #         where the type of transaction is specified by the parameter
 
-        Args:
-            _tranaction_type (str): the type of transaction, example Incomes, Expenses
+    #     Args:
+    #         _tranaction_type (str): the type of transaction, example Incomes, Expenses
         
-        Returns:
-            The sum of amounts for the transactions for the specified type
+    #     Returns:
+    #         The sum of amounts for the transactions for the specified type
             
-        """
-        try:
-            conn = self.db_connection()
-            cursor = conn.cursor()
-            query = "SELECT SUM(transaction_amount) FROM wallet_transactions WHERE transaction_type = '"+_tranaction_type+"' "
-            cursor.execute(query)
-            records = cursor.fetchall()
+    #     """
+    #     try:
+    #         conn = self.db_connection()
+    #         cursor = conn.cursor()
+    #         query = "SELECT SUM(transaction_amount) FROM wallet_transactions WHERE transaction_type = '"+_tranaction_type+"' "
+    #         cursor.execute(query)
+    #         records = cursor.fetchall()
 
-            # total = sum(records)
+    #         # total = sum(records)
 
-            return records
+    #         return records
             
-        except sqlite3.Error as e:
-            print("Failed to fetch records: ", e)
-        finally:
-            if conn:
-                cursor.close()
-                conn.close()
+    #     except sqlite3.Error as e:
+    #         print("Failed to fetch records: ", e)
+    #     finally:
+    #         if conn:
+    #             cursor.close()
+    #             conn.close()
     
 
-    def _get_number_of_records_of_categories(self, _category_type):
-        """Number of records
+    # def _get_number_of_records_of_categories(self, _category_type):
+    #     """Number of records
         
-        Description:
-            This method computes for the number of records in a table
-            specified by the parameter
+    #     Description:
+    #         This method computes for the number of records in a table
+    #         specified by the parameter
 
-        Args:
-            _category_type (str): the type of category, example Salary, Gift, Transportation, Grocery
+    #     Args:
+    #         _category_type (str): the type of category, example Salary, Gift, Transportation, Grocery
         
-        Returns:
-            The total number of records of the specified category
+    #     Returns:
+    #         The total number of records of the specified category
             
-        """
-        try:
-            conn = self.db_connection()
-            cursor = conn.cursor()
-            query = "SELECT * FROM wallet_transactions WHERE transaction_category = '"+_category_type+"' "
-            cursor.execute(query)
-            records = cursor.fetchall()
+    #     """
+    #     try:
+    #         conn = self.db_connection()
+    #         cursor = conn.cursor()
+    #         query = "SELECT * FROM wallet_transactions WHERE transaction_category = '"+_category_type+"' "
+    #         cursor.execute(query)
+    #         records = cursor.fetchall()
 
-            _sum = len(records)
+    #         _sum = len(records)
 
-            return _sum
+    #         return _sum
             
-        except sqlite3.Error as e:
-            print("Failed to fetch records: ", e)
-        finally:
-            if conn:
-                cursor.close()
-                conn.close()
+    #     except sqlite3.Error as e:
+    #         print("Failed to fetch records: ", e)
+    #     finally:
+    #         if conn:
+    #             cursor.close()
+    #             conn.close()
     
 
-    def _get_sum_of_amounts_of_categories(self, _category_type):
-        """Number of records
+    # def _get_sum_of_amounts_of_categories(self, _category_type):
+        # """Number of records
         
-        Description:
-            This method computes for the sum of amounts from the transactions table
-            where the type of transaction is specified by the parameter
+        # Description:
+        #     This method computes for the sum of amounts from the transactions table
+        #     where the type of transaction is specified by the parameter
 
-        Args:
-            _category_type (str): the category of transaction, example Salary, Gift, Grocery, Transportation
+        # Args:
+        #     _category_type (str): the category of transaction, example Salary, Gift, Grocery, Transportation
         
-        Returns:
-            The sum of amounts for the transactions for the specified category
+        # Returns:
+        #     The sum of amounts for the transactions for the specified category
             
-        """
-        try:
-            conn = self.db_connection()
-            cursor = conn.cursor()
-            query = "SELECT SUM(transaction_amount) FROM wallet_transactions WHERE transaction_category = '"+_category_type+"' "
-            cursor.execute(query)
-            records = cursor.fetchall()
+        # """
+        # try:
+        #     conn = self.db_connection()
+        #     cursor = conn.cursor()
+        #     query = "SELECT SUM(transaction_amount) FROM wallet_transactions WHERE transaction_category = '"+_category_type+"' "
+        #     cursor.execute(query)
+        #     records = cursor.fetchall()
 
-            # total = sum(records)
+        #     # total = sum(records)
 
-            return records
+        #     return records
             
-        except sqlite3.Error as e:
-            print("Failed to fetch records: ", e)
-        finally:
-            if conn:
-                cursor.close()
-                conn.close()
+        # except sqlite3.Error as e:
+        #     print("Failed to fetch records: ", e)
+        # finally:
+        #     if conn:
+        #         cursor.close()
+        #         conn.close()
