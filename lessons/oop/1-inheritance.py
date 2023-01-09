@@ -101,7 +101,7 @@ class ClassRoom(School):
             self.__classPopulation = numberOfPupils
 
     def __str__(self):
-        return "Name of class: {}\nLevel of class: {}\nPopulation of class: {}".format(self.__className, self.__classLevel, self.__classPopulation)
+        return super().__str__() + "\n\nName of class: {}\nLevel of class: {}\nPopulation of class: {}".format(self.__className, self.__classLevel, self.__classPopulation)
 
 
 
