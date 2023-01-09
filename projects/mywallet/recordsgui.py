@@ -70,12 +70,12 @@ def displayCategories(type):
         type (str): the type of categoyr records to display, example: Income, Expense
 
     """
-    _count = db._get_number_of_records_of_categories(type)
-    _sum = db._get_sum_of_amounts_of_categories(type)
+    # _count = db._get_number_of_records_of_categories(type)
+    # _sum = db._get_sum_of_amounts_of_categories(type)
 
-    lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(_count, type, _sum), fg="green")
-    lbSummary.config(font=("Courier", 11))
-    lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
+    # lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(_count, type, _sum), fg="green")
+    # lbSummary.config(font=("Courier", 11))
+    # lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
 
     tblCategoryRecords = ttk.Treeview(frmRecords)
     tblCategoryRecords.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
@@ -114,12 +114,12 @@ def displayTransactions(transaction_type):
         type (str): the type of categoyr records to display, example: Income, Expense
 
     """
-    _count = db._get_number_of_records_of_types(transaction_type)
-    _sum = db._get_sum_of_amounts_of_types(transaction_type)
+    # _count = db._get_number_of_records_of_types(transaction_type)
+    # _sum = db._get_sum_of_amounts_of_types(transaction_type)
 
-    lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(_count, transaction_type, _sum), fg="green")
-    lbSummary.config(font=("Courier", 11))
-    lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
+    # lbSummary = tk.Label(frmRecords, text="Count: {}\t\tRecords: {}\t\tTotal: {}".format(_count, transaction_type, _sum), fg="green")
+    # lbSummary.config(font=("Courier", 11))
+    # lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
 
     tblCategoryRecords = ttk.Treeview(frmRecords)
     tblCategoryRecords.grid(row=2, column=0, rowspan=20, columnspan=12, padx=5, pady=2, sticky=tk.N+tk.S+tk.W+tk.E)
@@ -159,7 +159,7 @@ lbSummary.config(font=("Courier", 11))
 lbSummary.grid(row=22, column=0, columnspan=12, padx=5, pady=2, sticky=tk.W)
 
 #   ================    COMBOBOX 
-cat_list = ["Income Categories", "Expense Categories", "Income Transactions", "Expense Transactions"]
+cat_list = ["Income Categories", "Expense Categories"] # , "Income Transactions", "Expense Transactions"
 
 cmbRecords = ttk.Combobox(frmRecords, value=cat_list, width=70)
 cmbRecords.set("Select record to display")
